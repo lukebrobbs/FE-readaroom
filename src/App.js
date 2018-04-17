@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import utils from './utils/db';
-import TimeChart from './components/TimeChart';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import utils from "./utils/db";
+import TimeChart from "./components/TimeChart";
+import { addNewDataPoint } from "./actions";
 
 class App extends Component {
+  addToReduxState = () => {
+    console.log(this.props);
+    this.props.store.dispatch(addNewDataPoint("Test"));
+  };
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <button onClick={() => utils.addStudentsToSession()}>Register</button>
-          <button onClick={() => utils.addEmotions()}>
+          <button onClick={() => this.addToReduxState()}>
             Start Emotion Extraction
           </button>
 
