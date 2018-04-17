@@ -1,14 +1,17 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import utils from "./utils/db";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import utils from './utils/db';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <button onClick={() => utils.pushToDb()} />
+          <button onClick={() => utils.addStudentsToSession()}>Register</button>
+          <button onClick={() => utils.addEmotions()}>
+            Start Emotion Extraction
+          </button>
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
