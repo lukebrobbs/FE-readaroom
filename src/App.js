@@ -1,14 +1,23 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import utils from "./utils/db";
-import TimeChart from "./components/TimeChart";
-import { addNewDataPoint } from "./actions";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import utils from './utils/db';
+import TimeChart from './components/TimeChart';
+import { addNewDataPoint } from './actions';
+import moment from 'moment';
 
 class App extends Component {
+  students = ['Sami', 'Luke', 'Joe', 'Spence'];
+
   addToReduxState = () => {
-    console.log(this.props);
-    this.props.store.dispatch(addNewDataPoint("Test"));
+    setInterval(() => {
+      const timestamp = moment();
+      this.students.forEach(student => {
+        this.props.store.dispatch(
+          addNewDataPoint(timestamp, student, utils.createTestEmotionData())
+        );
+      });
+    }, 5000);
   };
   render() {
     return (
@@ -25,7 +34,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <TimeChart />
+        <TimeChart store={this.props.store} />
       </div>
     );
   }
