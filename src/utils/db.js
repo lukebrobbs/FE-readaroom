@@ -40,6 +40,25 @@ const utils = {
   },
   addEmotions: () => {
     const sessionsRef = db.doc('sessions/ZmrKU1MgAHfNFnqF2VJe');
+    setInterval(() => {
+      sessionsRef
+        .get()
+        .then(QueryDocumentSnapshot => {
+          const students = QueryDocumentSnapshot.get('students');
+          const studentsWithUpdatedEmotions = students.map(student => {
+            student.emotions = [
+              ...student.emotions,
+              ...utils.createTestEmotionData()
+            ];
+            return student;
+          });
+          return studentsWithUpdatedEmotions;
+        })
+        .then(data => {
+          console.log('running');
+          sessionsRef.update({ students: data });
+        });
+    }, 2000);
   }
 };
 
