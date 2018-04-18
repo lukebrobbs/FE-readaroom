@@ -11,7 +11,7 @@ class App extends Component {
 
   addToReduxState = () => {
     setInterval(() => {
-      const timestamp = moment();
+      const timestamp = moment()._d;
       const chunkedData = [];
       this.students.forEach(student => {
         chunkedData.push({
@@ -20,7 +20,7 @@ class App extends Component {
           emotions: utils.createTestEmotionData()
         });
       });
-      this.props.store.dispatch(addMultipleDataPoints(chunkedData));
+      this.props.store.dispatch(addMultipleDataPoints(timestamp, chunkedData));
     }, 5000);
   };
   render() {

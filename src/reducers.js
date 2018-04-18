@@ -18,7 +18,10 @@ function dataPoint(state = [], action) {
         });
         return draftState;
       case ADD_MULTIPLE_DATA_POINTS:
-        draftState.push(action.dataPoints);
+        draftState.push({
+          timestamp: action.timeStamp,
+          data: action.dataPoints
+        });
         return draftState;
       default:
         return state;

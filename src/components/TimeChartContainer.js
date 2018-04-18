@@ -3,34 +3,28 @@ import TimeChart from './TimeChart';
 import { addToRows } from '../actions';
 import { bindActionCreators } from 'redux';
 
-const processLatestDatapoints = dataPoint => {
-  if (dataPoint.length) {
-    const currentTimestamp = dataPoint[dataPoint.length - 1].timestamp;
-    const dataPointsAtTimestamp = [];
+const processLatestDatapoints = dataPoints => {
+  if (dataPoints.length) {
+    const emotions = {
+      HAPPY: 0,
+      SAD: 0,
+      ANGRY: 0,
+      CONFUSED: 0,
+      DISGUSTED: 0,
+      SURPRISED: 0,
+      CALM: 0
+    };
+    const emotionPercentages = [dataPoints[dataPoints.length - 1].timestamp];
+    dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
+      dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
+    });
 
-    for (let i = dataPoint.length - 1; i >= 0; i--) {
-      // console.log(dataPointsAtTimestamp);
-      if (dataPoint[i].timestamp !== currentTimestamp) break;
-      dataPointsAtTimestamp.push(dataPoint[i]);
-      const emotions = {
-        timestamp: dataPointsAtTimestamp[0].timestamp,
-        HAPPY: 0,
-        SAD: 0,
-        ANGRY: 0,
-        CONFUSED: 0,
-        DISGUSTED: 0,
-        SURPRISED: 0,
-        CALM: 0
-      };
-      dataPointsAtTimestamp.forEach(student =>
-        student.emotions.forEach(emotion => (emotions[emotion.Type] += 1))
+    Object.values(emotions).forEach(value => {
+      emotionPercentages.push(
+        Math.floor(value / dataPoints[dataPoints.length - 1].data.length * 100)
       );
-      // console.log(emotions);
-      const newRow = dataPointsAtTimestamp.reduce((acc, curr) => {
-        curr.emotions.forEach(emotion => {});
-      }, []);
-    }
-    return dataPointsAtTimestamp;
+    });
+    console.log(emotionPercentages);
   }
   return [];
 };

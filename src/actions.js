@@ -10,6 +10,6 @@ export function addNewDataPoint(timestamp, student, emotions) {
 export function addToRows(coordinates) {
   return { type: ADD_TO_ROWS, coordinates };
 }
-export function addMultipleDataPoints(dataPoints) {
-  return { type: ADD_MULTIPLE_DATA_POINTS, dataPoints };
+export function addMultipleDataPoints(timeStamp, dataPoints) {
+  return { type: ADD_MULTIPLE_DATA_POINTS, timeStamp, dataPoints };
 }
