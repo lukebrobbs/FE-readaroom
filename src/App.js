@@ -10,8 +10,9 @@ class App extends Component {
   students = ['Sami', 'Luke', 'Joe', 'Spence'];
 
   addToReduxState = () => {
+    const startTime = moment()._d;
     setInterval(() => {
-      const timestamp = moment()._d;
+      const timestamp = moment()._d - startTime;
       const chunkedData = [];
       this.students.forEach(student => {
         chunkedData.push({
@@ -21,7 +22,7 @@ class App extends Component {
         });
       });
       this.props.store.dispatch(addMultipleDataPoints(timestamp, chunkedData));
-    }, 5000);
+    }, 500);
   };
   render() {
     return (
