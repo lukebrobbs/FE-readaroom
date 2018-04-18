@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import utils from './utils/db';
-import TimeChart from './components/TimeChart';
-import { addNewDataPoint } from './actions';
-import moment from 'moment';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import utils from "./utils/db";
+import TimeChartContainer from "./components/TimeChartContainer";
+import { addNewDataPoint } from "./actions";
+import moment from "moment";
 
 class App extends Component {
-  students = ['Sami', 'Luke', 'Joe', 'Spence'];
+  students = ["Sami", "Luke", "Joe", "Spence"];
 
   addToReduxState = () => {
     setInterval(() => {
@@ -34,7 +34,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <TimeChart store={this.props.store} />
+        <TimeChartContainer />
       </div>
     );
   }

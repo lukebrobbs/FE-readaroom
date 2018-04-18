@@ -1,7 +1,7 @@
-import { ADD_NEW_DATA_POINT } from './actions';
-import { combineReducers } from 'redux';
+import { ADD_NEW_DATA_POINT, ADD_TO_ROWS } from "./actions";
+import { combineReducers } from "redux";
 
-import produce from 'immer';
+import produce from "immer";
 
 function dataPoint(state = [], action) {
   return produce(state, draftState => {
@@ -19,6 +19,18 @@ function dataPoint(state = [], action) {
   });
 }
 
-const reducers = combineReducers({ dataPoint });
+function rows(state = [], action) {
+  return produce(state, draftState => {
+    switch (action.type) {
+      case ADD_TO_ROWS:
+        draftState.push(action.coordinates);
+        return draftState;
+      default:
+        return state;
+    }
+  });
+}
+
+const reducers = combineReducers({ dataPoint, rows });
 
 export default reducers;

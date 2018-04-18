@@ -1,19 +1,19 @@
-import { Chart } from 'react-google-charts';
-import React from 'react';
-import db from '../config.js';
+import { Chart } from "react-google-charts";
+import React from "react";
+import db from "../config.js";
 
 class TimeChart extends React.Component {
   state = {
     options: {
-      title: 'Audience Emotions over Time',
-      hAxis: { title: 'Time', minValue: 0 },
-      vAxis: { title: '% audience', minValue: 0, maxValue: 100 },
-      legend: 'none'
+      title: "Audience Emotions over Time",
+      hAxis: { title: "Time", minValue: 0 },
+      vAxis: { title: "% audience", minValue: 0, maxValue: 100 },
+      legend: "none"
     },
     rows: [[0, 0, 0, 0, 0, 0, 0, 0]],
     columns: [
-      { type: 'number', label: 'Age' },
-      { type: 'number', label: 'Weight' }
+      { type: "number", label: "Age" },
+      { type: "number", label: "Weight" }
     ]
   };
   calculateGraphVectors = () => {
@@ -36,18 +36,19 @@ class TimeChart extends React.Component {
       }, {});
   };
   render() {
-    this.calculateGraphVectors();
+    console.log(this.props.array);
     return (
-      <Chart
-        chartType="LineChart"
-        rows={this.state.rows}
-        columns={this.state.columns}
-        options={this.state.options}
-        graph_id="SteppedAreaChart"
-        width={'100%'}
-        height={'400px'}
-        legend_toggle
-      />
+      <div />
+      // <Chart
+      //   chartType="LineChart"
+      //   rows={this.state.rows}
+      //   columns={this.state.columns}
+      //   options={this.state.options}
+      //   graph_id="SteppedAreaChart"
+      //   width={"100%"}
+      //   height={"400px"}
+      //   legend_toggle
+      // />
     );
   }
 }
