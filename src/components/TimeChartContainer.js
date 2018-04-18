@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import TimeChart from './TimeChart';
-import { addToRows } from '../actions';
-import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import TimeChart from "./TimeChart";
+import { addToRows } from "../actions";
+import { bindActionCreators } from "redux";
 
 const processLatestDatapoints = dataPoints => {
   if (dataPoints.length) {
@@ -26,7 +26,6 @@ const processLatestDatapoints = dataPoints => {
         +(value / totalRegisteredEmotions * 100).toFixed(2)
       );
     });
-    console.log(emotionPercentages);
     return emotionPercentages;
   }
   return [];
