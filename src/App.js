@@ -1,22 +1,26 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import utils from "./utils/db";
-import TimeChartContainer from "./components/TimeChartContainer";
-import { addNewDataPoint } from "./actions";
-import moment from "moment";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import utils from './utils/db';
+import TimeChartContainer from './components/TimeChartContainer';
+import { addNewDataPoint, addMultipleDataPoints } from './actions';
+import moment from 'moment';
 
 class App extends Component {
-  students = ["Sami", "Luke", "Joe", "Spence"];
+  students = ['Sami', 'Luke', 'Joe', 'Spence'];
 
   addToReduxState = () => {
     setInterval(() => {
       const timestamp = moment();
+      const chunkedData = [];
       this.students.forEach(student => {
-        this.props.store.dispatch(
-          addNewDataPoint(timestamp, student, utils.createTestEmotionData())
-        );
+        chunkedData.push({
+          timestamp,
+          student,
+          emotions: utils.createTestEmotionData()
+        });
       });
+      this.props.store.dispatch(addMultipleDataPoints(chunkedData));
     }, 5000);
   };
   render() {
