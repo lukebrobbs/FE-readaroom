@@ -18,22 +18,25 @@ const processLatestDatapoints = dataPoints => {
     dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
       dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
     });
-
+    const totalRegisteredEmotions = Object.values(emotions).reduce(
+      (acc, value) => acc + value
+    );
     Object.values(emotions).forEach(value => {
       emotionPercentages.push(
-        Math.floor(value / dataPoints[dataPoints.length - 1].data.length * 100)
+        +(value / totalRegisteredEmotions * 100).toFixed(2)
       );
     });
     console.log(emotionPercentages);
+    return emotionPercentages;
   }
   return [];
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return { array: processLatestDatapoints(state.dataPoint) };
+  return { data: processLatestDatapoints(state.dataPoint), rows: state.rows };
 };
 const mapDispatchToProps = dispatch => {
-  return { updateGraphRows: bindActionCreators(addToRows, dispatch) };
+  return { updateGraph: bindActionCreators(addToRows, dispatch) };
 };
 
 const TimeChartContainer = connect(mapStateToProps, mapDispatchToProps)(

@@ -40,7 +40,8 @@ function rows(
       'Confused',
       'Sad',
       'Happy'
-    ]
+    ],
+    [0, 0, 0, 0, 0, 0, 0, 0]
   ],
   action
 ) {
