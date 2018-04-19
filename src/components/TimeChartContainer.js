@@ -32,7 +32,7 @@ const processLatestDatapoints = dataPoints => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return { data: processLatestDatapoints(state.dataPoint), rows: state.rows };
+  return { data: processLatestDatapoints(state.dataPoints), rows: state.rows };
 };
 const mapDispatchToProps = dispatch => {
   return { updateGraph: bindActionCreators(addToRows, dispatch) };

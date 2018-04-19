@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import utils from './utils/db';
-import TimeChartContainer from './components/TimeChartContainer';
-import { addNewDataPoint, addMultipleDataPoints } from './actions';
-import moment from 'moment';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import utils from "./utils/db";
+import TimeChartContainer from "./components/TimeChartContainer";
+import { addNewDataPoint, addDataPoint } from "./actions";
+import moment from "moment";
 
 class App extends Component {
-  students = ['Sami', 'Luke', 'Joe', 'Spence'];
+  students = ["Sami", "Luke", "Joe", "Spence"];
 
   addToReduxState = () => {
     const startTime = moment()._d;
@@ -21,14 +21,13 @@ class App extends Component {
           emotions: utils.createTestEmotionData()
         });
       });
-      this.props.store.dispatch(addMultipleDataPoints(timestamp, chunkedData));
-    }, 500);
+      this.props.store.dispatch(addDataPoint(timestamp, chunkedData));
+    }, 4000);
   };
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <button onClick={() => utils.addStudentsToSession()}>Register</button>
           <button onClick={() => this.addToReduxState()}>
             Start Emotion Extraction
           </button>

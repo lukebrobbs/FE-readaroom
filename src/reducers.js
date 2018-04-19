@@ -1,26 +1,15 @@
-import {
-  ADD_NEW_DATA_POINT,
-  ADD_TO_ROWS,
-  ADD_MULTIPLE_DATA_POINTS
-} from './actions';
-import { combineReducers } from 'redux';
+import { ADD_TO_ROWS, ADD_DATA_POINT } from "./actions";
+import { combineReducers } from "redux";
 
-import produce from 'immer';
+import produce from "immer";
 
-function dataPoint(state = [], action) {
+function dataPoints(state = [], action) {
   return produce(state, draftState => {
     switch (action.type) {
-      case ADD_NEW_DATA_POINT:
-        draftState.push({
-          timestamp: action.timestamp,
-          student: action.student,
-          emotions: action.emotions
-        });
-        return draftState;
-      case ADD_MULTIPLE_DATA_POINTS:
+      case ADD_DATA_POINT:
         draftState.push({
           timestamp: action.timeStamp,
-          data: action.dataPoints
+          data: action.dataPoint
         });
         return draftState;
       default:
@@ -32,14 +21,14 @@ function dataPoint(state = [], action) {
 function rows(
   state = [
     [
-      'Time (s)',
-      'Disgusted',
-      'Angry',
-      'Calm',
-      'Suprised',
-      'Confused',
-      'Sad',
-      'Happy'
+      "Time (s)",
+      "Disgusted",
+      "Angry",
+      "Calm",
+      "Suprised",
+      "Confused",
+      "Sad",
+      "Happy"
     ],
     [0, 0, 0, 0, 0, 0, 0, 0]
   ],
@@ -56,6 +45,6 @@ function rows(
   });
 }
 
-const reducers = combineReducers({ dataPoint, rows });
+const reducers = combineReducers({ dataPoints, rows });
 
 export default reducers;
