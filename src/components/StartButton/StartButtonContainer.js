@@ -7,23 +7,24 @@ import StartButton from './StartButton';
 const students = ['Sami', 'Luke', 'Joe', 'Spence'];
 
 const addToReduxState = dispatch => {
-  const startTime = moment()._d;
+  const startTime = new Date(Date.now());
   setInterval(() => {
-    const timestamp = moment()._d - startTime;
+    const now = new Date(Date.now());
+    const timestamp = Math.floor((now.getTime() - startTime.getTime()) / 1000);
     const chunkedData = [];
     students.forEach(student => {
       chunkedData.push({
-        timestamp,
+        timestamp: moment().second(timestamp),
         student,
         emotions: utils.createTestEmotionData()
       });
     });
     dispatch(addDataPoint(timestamp, chunkedData));
-  }, 2000);
+  }, 500);
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return { addToReduxState };
+  return {};
 };
 const mapDispatchToProps = dispatch => {
   return {

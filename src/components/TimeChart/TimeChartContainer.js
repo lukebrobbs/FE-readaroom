@@ -19,7 +19,7 @@ const processLatestDatapoints = dataPoints => {
       dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
     });
     const totalRegisteredEmotions = Object.values(emotions).reduce(
-      (acc, value) => acc + value
+      (acc, value) => (acc += value)
     );
     Object.values(emotions).forEach(value => {
       emotionPercentages.push(

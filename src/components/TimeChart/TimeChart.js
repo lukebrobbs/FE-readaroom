@@ -1,15 +1,18 @@
 import { Chart } from 'react-google-charts';
 import React from 'react';
+import produce from 'immer';
 
 class TimeChart extends React.Component {
   state = {
     options: {
       title: 'Audience Emotions over Time',
-      hAxis: { title: 'Time', minValue: 0, maxValue: 50000 },
+      hAxis: {
+        title: 'Time',
+        viewWindow: { min: 0, max: 30 }
+      },
       vAxis: { title: '% audience', minValue: 0, maxValue: 1 },
-      isStacked: 'relative',
-      explorer: { axis: 'horizontal' }
-      // animation: { duration: 2000 }
+      isStacked: 'percent'
+      // explorer: { axis: 'horizontal', keepinBound: true }
     }
   };
   shouldComponentUpdate(nextProps) {
@@ -19,11 +22,22 @@ class TimeChart extends React.Component {
   }
   componentDidUpdate() {
     this.props.updateGraph(this.props.data);
+    const { data } = this.props;
+    const latest = data[0];
+    if (this.state.options.hAxis.viewWindow.max <= latest - 2) {
+      this.setState(
+        produce(this.state, newState => {
+          newState.options.hAxis.viewWindow.min += 2;
+          newState.options.hAxis.viewWindow.max += 2;
+        })
+      );
+    }
   }
 
   render() {
     return (
       <Chart
+        id="time-chart"
         chartType="AreaChart"
         data={this.props.rows}
         options={this.state.options}
