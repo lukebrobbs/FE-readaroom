@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import TimeChart from "./TimeChart";
-import { addToRows } from "../actions";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import TimeChart from './TimeChart';
+import { addToRows } from '../../actions';
+import { bindActionCreators } from 'redux';
 
 const processLatestDatapoints = dataPoints => {
   if (dataPoints.length) {

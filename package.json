@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.1.0",
     "firebase": "^4.12.1",
     "immer": "^1.2.1",
     "lodash.samplesize": "^4.2.0",
