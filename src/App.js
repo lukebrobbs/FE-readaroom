@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Setup from './components/Setup';
 import TimeChartContainer from './components/TimeChart/TimeChartContainer';
 import MoodBoardContainer from './components/MoodBoard/MoodBoardContainer';
+import SummaryContainer from './components/Summary/SummaryContainer';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/setup" component={Setup} />
           <Route exact path="/timechart" component={TimeChartContainer} />
           <Route exact path="/moodboard" component={MoodBoardContainer} />
+          <Route exact path="/summary" component={SummaryContainer} />
           <Footer />
         </React.Fragment>
       </Router>
