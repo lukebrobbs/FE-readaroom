@@ -1,6 +1,7 @@
 import { Chart } from 'react-google-charts';
 import React from 'react';
 import produce from 'immer';
+import Nav from '../Nav';
 
 class TimeChart extends React.Component {
   state = {
@@ -36,16 +37,19 @@ class TimeChart extends React.Component {
 
   render() {
     return (
-      <Chart
-        id="time-chart"
-        chartType="AreaChart"
-        data={this.props.rows}
-        options={this.state.options}
-        graph_id="AreaChart"
-        width={'100%'}
-        height={'400px'}
-        legend_toggle
-      />
+      <React.Fragment>
+        <Nav />
+        <Chart
+          id="time-chart"
+          chartType="AreaChart"
+          data={this.props.rows}
+          options={this.state.options}
+          graph_id="AreaChart"
+          width={'100%'}
+          height={'400px'}
+          legend_toggle
+        />
+      </React.Fragment>
     );
   }
 }
