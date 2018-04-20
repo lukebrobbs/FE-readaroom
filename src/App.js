@@ -4,6 +4,7 @@ import TimeChartContainer from "./components/TimeChart/TimeChartContainer";
 import StartButtonContainer from "./components/StartButton/StartButtonContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <StartButtonContainer />
             <TimeChartContainer />
           </div>
+          <Footer />
         </React.Fragment>
       </Router>
     );
