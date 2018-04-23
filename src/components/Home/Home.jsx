@@ -1,9 +1,6 @@
 import React from 'react';
-import { React_Bootstrap_Carousel } from 'react-bootstrap-carousel';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Home.css';
-
-import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 
 const Home = () => (
   <div className="container-fluid">
