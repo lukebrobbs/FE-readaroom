@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import MoodBoard from './MoodBoard';
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return { happy: '60%', sad: '40%' };
 };
 const mapDispatchToProps = dispatch => {
   return {};
