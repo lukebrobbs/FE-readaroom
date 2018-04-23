@@ -10,6 +10,7 @@ import TimeChartContainer from './components/TimeChart/TimeChartContainer';
 import MoodBoardContainer from './components/MoodBoard/MoodBoardContainer';
 import SummaryContainer from './components/Summary/SummaryContainer';
 import Footer from './components/Footer';
+import LoadingGif from './components/LoadingGif/LoadingGif';
 
 class App extends Component {
   render() {
