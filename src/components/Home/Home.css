@@ -1,0 +1,24 @@
+.home {
+  background-image: url('https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/06/16/16/festival.jpg');
+  background-repeat: inherit;
+  background-size: cover;
+  height: 80vh;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.712);
+  width: 80vw;
+}
+
+.content p {
+  text-decoration-color: solid black;
+  font-family: 'Libre Baskerville', serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+button {
+  width: auto;
+}
