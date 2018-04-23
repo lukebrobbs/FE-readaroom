@@ -1,5 +1,9 @@
 import React from 'react';
 import './LoadingGif.css';
+/*
+Anders Schmidt Hansen, Little Ferry Loader.
+https://codepen.io/andersschmidt/pen/NPVPYP
+*/
 
 const LoadingGif = () => (
   <div id="gif-body" style={{ height: '200px', width: '100%' }}>
