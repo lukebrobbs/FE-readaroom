@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with EazyDraw for Mac ( http://www.eazydraw.com/ ) -->
+
+<svg
+    version="1.1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    width="79.3435447745"
+    height="66.778866598"
+    viewBox="0, 0, 79.3435447745, 66.778866598"
+    preserveAspectRatio="none"
+   >
+   <defs
+      />
+   <metadata
+      >
+      <rdf:RDF>
+         <cc:Work
+             rdf:about="">
+            <dc:format>image/svg+xml</dc:format>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:title></dc:title>
+         </cc:Work>
+      </rdf:RDF>
+   </metadata>
+   <g
+      
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;fill-rule:nonzero;stroke-linecap:square;stroke-linejoin:miter;stroke-width:1;stroke-miterlimit:10">
+      <rect
+          style="fill:#009D00;stroke:#009C00;stroke-linecap:butt"
+         
+          x="3.126543209877"
+          y="4.332304526749"
+          width="59.4176954733"
+          height="60.3446502058"
+          rx="10"
+          ry="10"/>
+      <text
+         
+          style="fill:#FFFFFF;stroke:none"
+          font-family="Brush Script MT"
+          font-size="42"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="5" y="37">R</tspan>
+      </text>
+      <text
+         
+          style="fill:#FFFFFF;stroke:none"
+          font-family="Brush Script MT"
+          font-size="42"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="28.9856567215" y="50.0911093964">R</tspan>
+      </text>
+   </g>
+</svg>
