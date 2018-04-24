@@ -13,6 +13,7 @@ class TimeChart extends React.Component {
       },
       vAxis: { title: '% audience', minValue: 0, maxValue: 1 },
       isStacked: 'percent'
+      // animation: { duration: 2000 }
       // explorer: { axis: 'horizontal', keepinBound: true }
     }
   };

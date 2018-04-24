@@ -1,0 +1,6 @@
+#happy-sad {
+  height: 30px;
+  width: 80%;
+  margin: auto;
+  background-image: linear-gradient(to right, green, red);
+}
