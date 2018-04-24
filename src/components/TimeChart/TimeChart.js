@@ -12,7 +12,7 @@ class TimeChart extends React.Component {
         viewWindow: { min: 0, max: 30 }
       },
       vAxis: { title: '% audience', minValue: 0, maxValue: 1 },
-      isStacked: 'percent'
+      isStacked: 'relative'
       // animation: { duration: 2000 }
       // explorer: { axis: 'horizontal', keepinBound: true }
     }
@@ -26,11 +26,11 @@ class TimeChart extends React.Component {
     this.props.updateGraph(this.props.data);
     const { data } = this.props;
     const latest = data[0];
-    if (this.state.options.hAxis.viewWindow.max <= latest - 2) {
+    if (this.state.options.hAxis.viewWindow.max <= latest - 3) {
       this.setState(
         produce(this.state, newState => {
-          newState.options.hAxis.viewWindow.min += 2;
-          newState.options.hAxis.viewWindow.max += 2;
+          newState.options.hAxis.viewWindow.min += 3;
+          newState.options.hAxis.viewWindow.max += 3;
         })
       );
     }

@@ -1,11 +1,14 @@
-import React from "react";
-import db from "../../config/config.js";
+import React from 'react';
+import db from '../../config/config.js';
 
-const sessionsRef = db.collection("readaroom").doc("currentData");
+const sessionsRef = db.collection('readaroom').doc('currentData');
 
 const StartButton = ({ onClick, addToDataPoint }) => {
+  let time = 0;
   sessionsRef.onSnapshot(function(doc) {
-    return addToDataPoint(doc.data().timestamp, doc.data().emotiondata);
+    let now = time + 3;
+    time += 3;
+    return addToDataPoint(time++, doc.data().emotiondata);
   });
   return (
     <button onClick={onClick} className="btn btn-success">
