@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import produce from 'immer';
-import { ADD_TO_ROWS, ADD_DATA_POINT } from './actions';
+import { combineReducers } from "redux";
+import produce from "immer";
+import { ADD_TO_ROWS, ADD_DATA_POINT } from "./actions";
 
 function dataPoints(state = [], action) {
   return produce(state, draftState => {
@@ -20,14 +20,14 @@ function dataPoints(state = [], action) {
 function rows(
   state = [
     [
-      'Time (s)',
-      'Disgusted',
-      'Angry',
-      'Calm',
-      'Suprised',
-      'Confused',
-      'Sad',
-      'Happy'
+      "Time (s)",
+      "Disgusted",
+      "Angry",
+      "Calm",
+      "Suprised",
+      "Confused",
+      "Sad",
+      "Happy"
     ],
     [0, 0, 0, 0, 0, 0, 0, 0]
   ],
