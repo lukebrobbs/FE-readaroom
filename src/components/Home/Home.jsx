@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './Home.css';
 
@@ -16,7 +18,9 @@ const Home = () => (
           you can up your game the next time
         </p>
         <div className="btn-group justify-content-center">
-          <button className="btn btn-success">Click here to get started</button>
+          <Link to="/setup" className="btn btn-success">
+            Click here to get started
+          </Link>
         </div>
       </div>
     </div>
