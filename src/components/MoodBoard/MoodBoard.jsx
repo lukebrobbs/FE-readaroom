@@ -1,7 +1,20 @@
+import { Chart } from 'react-google-charts';
 import React from 'react';
 import './MoodBoard.css';
 
 class MoodBoard extends React.Component {
+  gaugeOptions = {
+    max: 4,
+    min: 0,
+    width: 400,
+    height: 400,
+    redFrom: 3,
+    redTo: 4,
+    yellowFrom: 2,
+    yellowTo: 3,
+    minorTicks: 0
+  };
+
   render() {
     return (
       <div>
@@ -11,6 +24,10 @@ class MoodBoard extends React.Component {
           room
         </p>
         <div className="container">
+          <div id="bar-one" className="">
+            <h1 className="float-left">😃</h1>
+            <h1 className="float-right">🤢</h1>
+          </div>
           <div className="progress my-4" style={{ height: '50px' }}>
             <div
               className="progress-bar bg-success"
@@ -27,14 +44,11 @@ class MoodBoard extends React.Component {
               <h3>Sad</h3>
             </div>
           </div>
-          <div className="progress my-4" style={{ height: '50px' }}>
-            <div
-              className="progress-bar bg-danger"
-              role="progressbar"
-              style={{ width: this.props.data.angry + '%' }}
-            >
-              <h3>Angry</h3>
-            </div>
+          <div id="bar-two" className="">
+            <h1 className="float-left">😇</h1>
+            <h1 className="float-right">👹</h1>
+          </div>
+          <div className="progress my-4 float-none" style={{ height: '50px' }}>
             <div
               className="progress-bar bg-info"
               role="progressbar"
@@ -42,29 +56,28 @@ class MoodBoard extends React.Component {
             >
               <h3>Calm</h3>
             </div>
+            <div
+              className="progress-bar bg-danger"
+              role="progressbar"
+              style={{ width: this.props.data.angry + '%' }}
+            >
+              <h3>Angry</h3>
+            </div>
           </div>
-          <div className="progress my-4" style={{ height: '50px' }}>
-            <div
-              className="progress-bar bg-info"
-              role="progressbar"
-              style={{ width: this.props.data.confused + '%' }}
-            >
-              <h3>Confused</h3>
-            </div>
-            <div
-              className="progress-bar bg-warning"
-              role="progressbar"
-              style={{ width: this.props.data.disgusted + '%' }}
-            >
-              <h3>Disgusted</h3>
-            </div>
-            <div
-              className="progress-bar bg-info"
-              role="progressbar"
-              style={{ width: this.props.data.surprised + '%' }}
-            >
-              <h3>Surprised</h3>
-            </div>
+
+          <div className={'my-pretty-chart-container'}>
+            <Chart
+              chartType="Gauge"
+              data={[
+                ['Label', 'Value'],
+                ['Disgusted', this.props.data.disgusted]
+              ]}
+              options={this.gaugeOptions}
+              graph_id="gaugeDiv"
+              width={'100%'}
+              height={'400px'}
+              legend_toggle
+            />
           </div>
         </div>
       </div>

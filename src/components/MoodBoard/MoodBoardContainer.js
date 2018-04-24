@@ -28,7 +28,9 @@ const processData = dataPoints => {
       angry: Math.round(emotions.ANGRY / totalAC) * 100,
       calm: Math.round(emotions.CALM / totalAC) * 100,
       surprised: Math.round(emotions.SURPRISED / totalSDC) * 100,
-      disgusted: Math.round(emotions.DISGUSTED / totalSDC) * 100,
+      disgusted: Math.round(
+        dataPoints[dataPoints.length - 1].data.length / emotions.DISGUSTED
+      ),
       confused: Math.round(emotions.CONFUSED / totalSDC) * 100
     };
   }
