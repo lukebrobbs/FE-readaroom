@@ -1,10 +1,11 @@
-import { connect } from 'react-redux';
-import moment from 'moment';
-import { addDataPoint } from '../../actions';
-import utils from '../../utils/db';
-import StartButton from './StartButton';
+import { connect } from "react-redux";
+import moment from "moment";
+import { bindActionCreators } from "redux";
+import { addDataPoint } from "../../actions";
+import utils from "../../utils/db";
+import StartButton from "./StartButton";
 
-const students = ['Sami', 'Luke', 'Joe', 'Spence'];
+const students = ["Sami", "Luke", "Joe", "Spence"];
 
 const addToReduxState = dispatch => {
   const startTime = new Date(Date.now());
@@ -30,7 +31,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onClick: () => {
       addToReduxState(dispatch);
-    }
+    },
+    addToDataPoint: bindActionCreators(addDataPoint, dispatch)
   };
 };
 

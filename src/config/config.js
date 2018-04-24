@@ -2,12 +2,12 @@ import firebase from "firebase";
 import "firebase/firestore";
 
 const config = {
-  apiKey: "AIzaSyCMUbVVw4nTdK5hJ3Rjl508FCJhwfYwypo",
-  authDomain: "sample-6cbe3.firebaseapp.com",
-  databaseURL: "https://sample-6cbe3.firebaseio.com",
-  projectId: "sample-6cbe3",
-  storageBucket: "sample-6cbe3.appspot.com",
-  messagingSenderId: "690680784935"
+  apiKey: "AIzaSyDwqOx_6oIYIoHXZ-w4FmdeaXNNye7bgtw",
+  authDomain: "readaroom-90fdc.firebaseapp.com",
+  databaseURL: "https://readaroom-90fdc.firebaseio.com",
+  projectId: "readaroom-90fdc",
+  storageBucket: "readaroom-90fdc.appspot.com",
+  messagingSenderId: "419332014044"
 };
 firebase.initializeApp(config);
 const db = firebase.firestore();
