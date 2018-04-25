@@ -25,13 +25,18 @@ const calculateNumberOfFaces = dataPoints => {
 
 const calculateSessionDuration = dataPoints => {
   if (dataPoints.length) {
+    const startTime = dataPoints[0].timestamp;
+    const duration = moment(startTime).fromNow(true);
+    return duration;
   }
+  return '--:--:--';
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     averageAge: calculateAverageAge(state.dataPoints),
-    facesRecognised: calculateNumberOfFaces(state.dataPoints)
+    facesRecognised: calculateNumberOfFaces(state.dataPoints),
+    sessionDuration: calculateSessionDuration(state.dataPoints)
   };
 };
 const mapDispatchToProps = dispatch => {
