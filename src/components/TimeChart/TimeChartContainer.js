@@ -1,18 +1,18 @@
-import { connect } from 'react-redux';
-import TimeChart from './TimeChart';
-import { addToRows } from '../../actions';
-import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import TimeChart from "./TimeChart";
+import { addToRows } from "../../actions";
+import { bindActionCreators } from "redux";
 
 const processLatestDatapoints = dataPoints => {
   if (dataPoints.length) {
     const emotions = {
-      HAPPY: 0,
-      SAD: 0,
-      ANGRY: 0,
-      CONFUSED: 0,
       DISGUSTED: 0,
+      ANGRY: 0,
+      CALM: 0,
       SURPRISED: 0,
-      CALM: 0
+      CONFUSED: 0,
+      SAD: 0,
+      HAPPY: 0
     };
     const emotionPercentages = [dataPoints[dataPoints.length - 1].timestamp];
     dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
