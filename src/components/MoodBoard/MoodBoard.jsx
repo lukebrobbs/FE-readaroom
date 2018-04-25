@@ -4,14 +4,14 @@ import './MoodBoard.css';
 
 class MoodBoard extends React.Component {
   gaugeOptions = {
-    max: 4,
+    max: 100,
     min: 0,
-    width: 400,
-    height: 400,
-    redFrom: 3,
-    redTo: 4,
-    yellowFrom: 2,
-    yellowTo: 3,
+    width: 300,
+    height: 300,
+    redFrom: 80,
+    redTo: 100,
+    yellowFrom: 50,
+    yellowTo: 80,
     minorTicks: 0
   };
 
@@ -20,8 +20,8 @@ class MoodBoard extends React.Component {
       <div>
         <h1>MoodBoard</h1>
         <p>
-          Currently tracking {this.props.data.occupants || '0'} people in the
-          room
+          Currently tracking {this.props.data.occupants || '0'}
+          {this.props.data.occupants === 1 ? ' person' : ' people'} in the room
         </p>
         <div className="container">
           <div id="bar-one" className="">
@@ -64,20 +64,49 @@ class MoodBoard extends React.Component {
               <h3>Angry</h3>
             </div>
           </div>
-
-          <div className={'my-pretty-chart-container'}>
-            <Chart
-              chartType="Gauge"
-              data={[
-                ['Label', 'Value'],
-                ['Disgusted', this.props.data.disgusted]
-              ]}
-              options={this.gaugeOptions}
-              graph_id="gaugeDiv"
-              width={'100%'}
-              height={'400px'}
-              legend_toggle
-            />
+          <div id="guages" className="d-flex flex-wrap justify-content-around">
+            <div id="surprised-gauge">
+              <Chart
+                chartType="Gauge"
+                data={[
+                  ['Label', 'Value'],
+                  ['Surprised', this.props.data.surprised]
+                ]}
+                options={this.gaugeOptions}
+                graph_id="surprised-gauge"
+                width={'100%'}
+                height={'300px'}
+                legend_toggle
+              />
+            </div>
+            <div id="confused-gauge">
+              <Chart
+                chartType="Gauge"
+                data={[
+                  ['Label', 'Value'],
+                  ['Confused', this.props.data.confused]
+                ]}
+                options={this.gaugeOptions}
+                graph_id="confused-gauge"
+                width={'100%'}
+                height={'300px'}
+                legend_toggle
+              />
+            </div>
+            <div id="disgusted-guage">
+              <Chart
+                chartType="Gauge"
+                data={[
+                  ['Label', 'Value'],
+                  ['Disgusted', this.props.data.disgusted]
+                ]}
+                options={this.gaugeOptions}
+                graph_id="disgusted-gauge"
+                width={'100%'}
+                height={'300px'}
+                legend_toggle
+              />
+            </div>
           </div>
         </div>
       </div>
