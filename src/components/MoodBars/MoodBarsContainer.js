@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MoodBoard from './MoodBoard';
+import MoodBars from './MoodBars';
 
 const processData = dataPoints => {
   if (dataPoints.length) {
@@ -19,28 +19,21 @@ const processData = dataPoints => {
     });
     const totalHS = emotions.HAPPY + emotions.SAD;
     const totalAC = emotions.ANGRY + emotions.CALM;
-    const totalSDC =
-      emotions.SURPRISED + emotions.DISGUSTED + emotions.CONFUSED;
+
     return {
-      occupants: dataPoints[dataPoints.length - 1].data.length,
       happy: Math.round(emotions.HAPPY / totalHS) * 100,
       sad: Math.round(emotions.SAD / totalHS) * 100,
       angry: Math.round(emotions.ANGRY / totalAC) * 100,
-      calm: Math.round(emotions.CALM / totalAC) * 100,
-      surprised: Math.round(emotions.SURPRISED / totalSDC) * 100,
-      disgusted: Math.round(
-        dataPoints[dataPoints.length - 1].data.length / emotions.DISGUSTED
-      ),
-      confused: Math.round(emotions.CONFUSED / totalSDC) * 100
+      calm: Math.round(emotions.CALM / totalAC) * 100
     };
   }
   return {
     happy: 50,
     sad: 50,
     angry: 50,
-    confused: 33,
-    disgusted: 33,
-    surprised: 34,
+    confused: 50,
+    disgusted: 50,
+    surprised: 50,
     calm: 50
   };
 };
@@ -52,8 +45,8 @@ const mapDispatchToProps = dispatch => {
   return {};
 };
 
-const MoodBoardContainer = connect(mapStateToProps, mapDispatchToProps)(
-  MoodBoard
+const MoodBarsContainer = connect(mapStateToProps, mapDispatchToProps)(
+  MoodBars
 );
 
-export default MoodBoardContainer;
+export default MoodBarsContainer;
