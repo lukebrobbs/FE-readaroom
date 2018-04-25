@@ -7,11 +7,12 @@ import StartButtonContainer from './components/StartButton/StartButtonContainer'
 import Home from './components/Home/Home';
 import Setup from './components/Setup/Setup';
 import TimeChartContainer from './components/TimeChart/TimeChartContainer';
-import MoodBoardContainer from './components/MoodBoard/MoodBoardContainer';
+import MoodBarsContainer from './components/MoodBars/MoodBarsContainer';
 import SummaryContainer from './components/Summary/SummaryContainer';
 import LiveStats from './components/LiveStats';
 import Footer from './components/Footer';
 import LoadingGif from './components/LoadingGif/LoadingGif';
+import MoodGaugeContainer from './components/MoodGauges/MoodGaugeContainer';
 
 class App extends Component {
   render() {
@@ -24,7 +25,8 @@ class App extends Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/setup" component={Setup} />
             <Route exact path="/timechart" component={TimeChartContainer} />
-            <Route exact path="/moodboard" component={MoodBoardContainer} />
+            <Route exact path="/moodbars" component={MoodBarsContainer} />
+            <Route exact path="/moodgauges" component={MoodGaugeContainer} />
             <Route exact path="/summary" component={SummaryContainer} />
             <Route exact path="/livestats" component={LiveStats} />
           </div>
