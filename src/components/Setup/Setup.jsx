@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Setup extends Component {
-  state = {};
+  state = {
+    sessionName: '',
+    username: ''
+  };
+
+  onChange = e => {
+    const { id, value } = e.target;
+    this.setState({
+      [id]: value
+    });
+  };
 
   render() {
+    console.log(this.props);
     return (
       <div className="d-inline-block Container d-flex flex-column">
         <nav className="navbar bg-light container-fluid">
           <h1 className="navbar-brand">Setup</h1>
-          <button className="nav-link btn btn-success mx-2">History</button>
+          <Link to="/summary" className="nav-link btn btn-success mx-2">
+            History
+          </Link>
         </nav>
         <div className="row">
           <p className="col m-4">
@@ -20,11 +34,13 @@ class Setup extends Component {
         </div>
         <form>
           <div className="form-group row">
-            <label class="col-sm-2 col-form-label text-md-right">
+            <label className="col-sm-2 col-form-label text-md-right">
               Session: *
             </label>
             <div className="col-sm-8">
               <input
+                onChange={this.onChange}
+                id="sessionName"
                 className="form-control"
                 type="text"
                 placeholder="Enter your NEW Session Name here"
@@ -32,11 +48,13 @@ class Setup extends Component {
             </div>
           </div>
           <div className="form-group row">
-            <label class="col-sm-2 col-form-label text-md-right">
+            <label className="col-sm-2 col-form-label text-md-right">
               Username: *
             </label>
             <div className="col-sm-8">
               <input
+                onChange={this.onChange}
+                id="username"
                 className="form-control"
                 type="text"
                 placeholder="Enter your Username here"
@@ -49,7 +67,13 @@ class Setup extends Component {
             <button className="btn btn-info">Clear</button>
           </div>
           <div className="mx-2">
-            <button className="btn btn-success">Start</button>
+            <Link
+              onClick={this.props.onClick}
+              to="/timechart"
+              className="btn btn-success"
+            >
+              Start
+            </Link>
           </div>
         </div>
       </div>
