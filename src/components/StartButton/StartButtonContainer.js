@@ -21,7 +21,7 @@ const addToReduxState = dispatch => {
       });
     });
     dispatch(addDataPoint(timestamp, chunkedData));
-  }, 500);
+  }, 3000);
 };
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
 import produce from "immer";
-import { ADD_TO_ROWS, ADD_DATA_POINT } from "./actions";
+import {
+  ADD_TO_TIME_CHART_ROWS,
+  ADD_TO_LINE_CHART_ROWS,
+  ADD_DATA_POINT
+} from "./actions";
 
 function dataPoints(state = [], action) {
   return produce(state, draftState => {
@@ -16,8 +20,22 @@ function dataPoints(state = [], action) {
     }
   });
 }
+function lineChartRows(
+  state = [["Time (s)", "Confused", "Happy"], [0, 0, 0]],
+  action
+) {
+  return produce(state, draftState => {
+    switch (action.type) {
+      case ADD_TO_LINE_CHART_ROWS:
+        draftState.push(action.coordinates);
+        return draftState;
+      default:
+        return state;
+    }
+  });
+}
 
-function rows(
+function timeChartRows(
   state = [
     [
       "Time (s)",
@@ -35,7 +53,7 @@ function rows(
 ) {
   return produce(state, draftState => {
     switch (action.type) {
-      case ADD_TO_ROWS:
+      case ADD_TO_TIME_CHART_ROWS:
         draftState.push(action.coordinates);
         return draftState;
       default:
@@ -44,6 +62,6 @@ function rows(
   });
 }
 
-const reducers = combineReducers({ dataPoints, rows });
+const reducers = combineReducers({ dataPoints, timeChartRows, lineChartRows });
 
 export default reducers;

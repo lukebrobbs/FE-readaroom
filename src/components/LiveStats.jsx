@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import StatsContainer from './Stats/StatsContainer';
-import TimeChartContainer from './TimeChart/TimeChartContainer';
-import MoodbarsContainer from './MoodBars/MoodBarsContainer';
-import MoodGaugesContainer from './MoodGauges/MoodGaugeContainer';
-import Nav from './Nav';
+import React, { Component } from "react";
+import StatsContainer from "./Stats/StatsContainer";
+import TimeChartContainer from "./TimeChart/TimeChartContainer";
+import MoodbarsContainer from "./MoodBars/MoodBarsContainer";
+import MoodGaugesContainer from "./MoodGauges/MoodGaugeContainer";
+import LineChartContainer from "./LineChart/LineChartContainer";
+import Nav from "./Nav";
 
 class LiveStats extends Component {
   state = {
@@ -27,7 +28,7 @@ class LiveStats extends Component {
         {bars && <MoodbarsContainer />}
         {gauges && <MoodGaugesContainer />}
         {timechart && <TimeChartContainer />}
-        {/* {linechart && <MoodGauges />} */}
+        {linechart && <LineChartContainer />}
       </React.Fragment>
     );
   }

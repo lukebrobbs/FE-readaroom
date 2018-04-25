@@ -1,30 +1,27 @@
 import { connect } from "react-redux";
-import TimeChart from "./TimeChart";
-import { addToTimeChartRows } from "../../actions";
+import LineChart from "./LineChart";
+import { addToLineChartRows } from "../../actions";
 import { bindActionCreators } from "redux";
 
 const processLatestDatapoints = dataPoints => {
   if (dataPoints.length) {
     const emotions = {
-      DISGUSTED: 0,
-      ANGRY: 0,
-      CALM: 0,
-      SURPRISED: 0,
       CONFUSED: 0,
-      SAD: 0,
       HAPPY: 0
     };
     const emotionPercentages = [dataPoints[dataPoints.length - 1].timestamp];
     dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
-      dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
+      dataPoint.emotions.forEach(emotion => {
+        if (emotion.Type === "HAPPY" || emotion.Type === "CONFUSED") {
+          emotions[emotion.Type] += 1;
+        }
+      });
     });
     const totalRegisteredEmotions = Object.values(emotions).reduce(
       (acc, value) => (acc += value)
     );
     Object.values(emotions).forEach(value => {
-      emotionPercentages.push(
-        +(value / totalRegisteredEmotions * 100).toFixed(2)
-      );
+      emotionPercentages.push(value);
     });
     return emotionPercentages;
   }
@@ -34,14 +31,15 @@ const processLatestDatapoints = dataPoints => {
 const mapStateToProps = (state, ownProps) => {
   return {
     data: processLatestDatapoints(state.dataPoints),
-    rows: state.timeChartRows
+    rows: state.lineChartRows,
+    people: state.dataPoints.length ? state.dataPoints[0].data.length + 5 : 0
   };
 };
 const mapDispatchToProps = dispatch => {
-  return { updateGraph: bindActionCreators(addToTimeChartRows, dispatch) };
+  return { updateGraph: bindActionCreators(addToLineChartRows, dispatch) };
 };
 
-const TimeChartContainer = connect(mapStateToProps, mapDispatchToProps)(
-  TimeChart
+const LineChartContainer = connect(mapStateToProps, mapDispatchToProps)(
+  LineChart
 );
-export default TimeChartContainer;
+export default LineChartContainer;
