@@ -9,6 +9,7 @@ import Setup from './components/Setup/Setup';
 import TimeChartContainer from './components/TimeChart/TimeChartContainer';
 import MoodBoardContainer from './components/MoodBoard/MoodBoardContainer';
 import SummaryContainer from './components/Summary/SummaryContainer';
+import LiveStats from './components/LiveStats';
 import Footer from './components/Footer';
 import LoadingGif from './components/LoadingGif/LoadingGif';
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route exact path="/timechart" component={TimeChartContainer} />
             <Route exact path="/moodboard" component={MoodBoardContainer} />
             <Route exact path="/summary" component={SummaryContainer} />
+            <Route exact path="/livestats" component={LiveStats} />
           </div>
           <Footer />
         </div>
