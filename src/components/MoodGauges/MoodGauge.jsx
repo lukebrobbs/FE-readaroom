@@ -5,8 +5,8 @@ class MoodGauge extends React.Component {
   gaugeOptionsBad = {
     max: 100,
     min: 0,
-    width: 300,
-    height: 300,
+    width: 200,
+    height: 200,
     redFrom: 75,
     redTo: 100,
     yellowFrom: 50,
@@ -16,8 +16,8 @@ class MoodGauge extends React.Component {
   gaugeOptionsGood = {
     max: 100,
     min: 0,
-    width: 300,
-    height: 300,
+    width: 200,
+    height: 200,
     greenFrom: 50,
     greenTo: 100,
     minorTicks: 0

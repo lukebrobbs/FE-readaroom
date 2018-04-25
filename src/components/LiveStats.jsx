@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import StatsContainer from './Stats/StatsContainer';
 import TimeChartContainer from './TimeChart/TimeChartContainer';
+import MoodbarsContainer from './MoodBars/MoodBarsContainer';
+import MoodGaugesContainer from './MoodGauges/MoodGaugeContainer';
 import Nav from './Nav';
 
 class LiveStats extends Component {
@@ -22,8 +24,8 @@ class LiveStats extends Component {
       <React.Fragment>
         <Nav toggleCheckbox={this.toggleCheckbox} />
         {stats && <StatsContainer />}
-        {/* {bars && <MoodBars />}
-        {gauges && <MoodGauges />} */}
+        {bars && <MoodbarsContainer />}
+        {gauges && <MoodGaugesContainer />}
         {timechart && <TimeChartContainer />}
         {/* {linechart && <MoodGauges />} */}
       </React.Fragment>
