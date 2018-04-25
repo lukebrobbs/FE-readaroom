@@ -18,20 +18,18 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container-fluid">
+        <React.Fragment>
           <Header />
-          <div className="container">
-            <StartButtonContainer />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/setup" component={Setup} />
-            <Route exact path="/timechart" component={TimeChartContainer} />
-            <Route exact path="/moodbars" component={MoodBarsContainer} />
-            <Route exact path="/moodgauges" component={MoodGaugeContainer} />
-            <Route exact path="/summary" component={SummaryContainer} />
-            <Route exact path="/livestats" component={LiveStats} />
-          </div>
+          <StartButtonContainer />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/setup" component={Setup} />
+          <Route exact path="/timechart" component={TimeChartContainer} />
+          <Route exact path="/moodbars" component={MoodBarsContainer} />
+          <Route exact path="/moodgauges" component={MoodGaugeContainer} />
+          <Route exact path="/summary" component={SummaryContainer} />
+          <Route exact path="/livestats" component={LiveStats} />
           <Footer />
-        </div>
+        </React.Fragment>
       </Router>
     );
   }
