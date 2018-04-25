@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StatsContainer from './Stats/StatsContainer';
+import TimeChartContainer from './TimeChart/TimeChartContainer';
+import Nav from './Nav';
 
 class LiveStats extends Component {
   state = {
@@ -10,12 +12,22 @@ class LiveStats extends Component {
     linechart: false
   };
 
-  toggleState = toToggle => {
+  toggleCheckbox = toToggle => {
     this.setState({ [toToggle]: !this.state[toToggle] });
   };
 
   render() {
-    return <StatsContainer />;
+    const { stats, bars, gauges, timechart, linechart } = this.state;
+    return (
+      <React.Fragment>
+        <Nav toggleCheckbox={this.toggleCheckbox} />
+        {stats && <StatsContainer />}
+        {/* {bars && <MoodBars />}
+        {gauges && <MoodGauges />} */}
+        {timechart && <TimeChartContainer />}
+        {/* {linechart && <MoodGauges />} */}
+      </React.Fragment>
+    );
   }
 }
 
