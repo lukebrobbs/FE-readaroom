@@ -9,7 +9,10 @@ class LineChart extends React.Component {
       title: "Audience Emotions over Time",
       hAxis: {
         title: "Time",
-        viewWindow: { min: 0, max: 120 }
+        viewWindow: {
+          min: this.props.data[0] < 120 ? 0 : this.props.data[0] - 120,
+          max: this.props.data[0] < 120 ? 120 : this.props.data[0]
+        }
       },
       vAxis: {
         title: "No of people",
