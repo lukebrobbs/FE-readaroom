@@ -3,7 +3,60 @@ import db from "../../config/config.js";
 
 const sessionsRef = db.collection("readaroom").doc("currentData");
 
-const StartButton = ({ onClick, addToDataPoint }) => {
+const processChartRows = (timeStamp, dataPoints) => {
+  if (dataPoints.length) {
+    const emotions = {
+      DISGUSTED: 0,
+      ANGRY: 0,
+      CALM: 0,
+      SURPRISED: 0,
+      CONFUSED: 0,
+      SAD: 0,
+      HAPPY: 0
+    };
+    console.log(dataPoints);
+    const emotionPercentages = [timeStamp];
+    dataPoints.forEach(dataPoint => {
+      dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
+    });
+    const totalRegisteredEmotions = Object.values(emotions).reduce(
+      (acc, value) => (acc += value)
+    );
+    Object.values(emotions).forEach(value => {
+      emotionPercentages.push(
+        +(value / totalRegisteredEmotions * 100).toFixed(2)
+      );
+    });
+    return emotionPercentages;
+  }
+  return [];
+};
+const processGraphRows = (timeStamp, dataPoints) => {
+  if (dataPoints.length) {
+    const emotions = {
+      CONFUSED: 0,
+      HAPPY: 0
+    };
+    const emotionPercentages = [timeStamp];
+    dataPoints.forEach(dataPoint => {
+      dataPoint.emotions.forEach(emotion => {
+        if (emotion.Type === "HAPPY" || emotion.Type === "CONFUSED") {
+          emotions[emotion.Type] += 1;
+        }
+      });
+    });
+    const totalRegisteredEmotions = Object.values(emotions).reduce(
+      (acc, value) => (acc += value)
+    );
+    Object.values(emotions).forEach(value => {
+      emotionPercentages.push(value);
+    });
+    return emotionPercentages;
+  }
+  return [];
+};
+
+const StartButton = ({ onClick, addToDataPoint, updateAll }) => {
   let time = 0;
   sessionsRef.onSnapshot(function(doc) {
     let now = time + 3;
@@ -24,7 +77,13 @@ const StartButton = ({ onClick, addToDataPoint }) => {
       });
       return data;
     });
-    return addToDataPoint(time++, filteredDocData);
+    // return updateAll(time++, filteredDocData)
+    return updateAll(
+      time++,
+      filteredDocData,
+      processChartRows(time++, filteredDocData),
+      processGraphRows(time++, filteredDocData)
+    );
   });
   return (
     <button onClick={onClick} className="btn btn-success">

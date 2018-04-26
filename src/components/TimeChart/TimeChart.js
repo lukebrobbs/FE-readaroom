@@ -27,7 +27,7 @@ class TimeChart extends React.Component {
     } else return false;
   }
   componentDidUpdate() {
-    this.props.updateGraph(this.props.data);
+    // this.props.updateGraph(this.props.data);
     const { data } = this.props;
     const latest = data[0];
     if (this.state.options.hAxis.viewWindow.max <= latest - 3) {

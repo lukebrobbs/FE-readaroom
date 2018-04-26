@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import moment from "moment";
 import { bindActionCreators } from "redux";
-import { addDataPoint } from "../../actions";
+import { addDataPoint, updateAll } from "../../actions";
 import utils from "../../utils/db";
 import StartButton from "./StartButton";
 
@@ -32,7 +32,8 @@ const mapDispatchToProps = dispatch => {
     onClick: () => {
       addToReduxState(dispatch);
     },
-    addToDataPoint: bindActionCreators(addDataPoint, dispatch)
+    addToDataPoint: bindActionCreators(addDataPoint, dispatch),
+    updateAll: bindActionCreators(updateAll, dispatch)
   };
 };
 

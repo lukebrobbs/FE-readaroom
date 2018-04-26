@@ -3,7 +3,8 @@ import produce from "immer";
 import {
   ADD_TO_TIME_CHART_ROWS,
   ADD_TO_LINE_CHART_ROWS,
-  ADD_DATA_POINT
+  ADD_DATA_POINT,
+  UPDATE_ALL
 } from "./actions";
 
 function dataPoints(state = [], action) {
@@ -12,6 +13,12 @@ function dataPoints(state = [], action) {
       case ADD_DATA_POINT:
         draftState.push({
           timestamp: action.timeStamp,
+          data: action.dataPoint
+        });
+        return draftState;
+      case UPDATE_ALL:
+        draftState.push({
+          timeStamp: action.timeStamp,
           data: action.dataPoint
         });
         return draftState;
@@ -28,6 +35,9 @@ function lineChartRows(
     switch (action.type) {
       case ADD_TO_LINE_CHART_ROWS:
         draftState.push(action.coordinates);
+        return draftState;
+      case UPDATE_ALL:
+        draftState.push(action.graphCoordinates);
         return draftState;
       default:
         return state;
@@ -55,6 +65,9 @@ function timeChartRows(
     switch (action.type) {
       case ADD_TO_TIME_CHART_ROWS:
         draftState.push(action.coordinates);
+        return draftState;
+      case UPDATE_ALL:
+        draftState.push(action.chartCoordinates);
         return draftState;
       default:
         return state;
