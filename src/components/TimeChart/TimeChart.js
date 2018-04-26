@@ -10,7 +10,10 @@ class TimeChart extends React.Component {
       colors: ["#e0440e", "red", "blue", "grey", "orange", "yellow", "green"],
       hAxis: {
         title: "Time(seconds)",
-        viewWindow: { min: 0, max: 120 }
+        viewWindow: {
+          min: this.props.data[0] < 120 ? 0 : this.props.data[0] - 120,
+          max: this.props.data[0] < 120 ? 120 : this.props.data[0]
+        }
       },
       vAxis: { title: "% audience", minValue: 0, maxValue: 1 },
       isStacked: "true"
