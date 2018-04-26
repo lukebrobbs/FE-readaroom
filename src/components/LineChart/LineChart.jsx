@@ -16,8 +16,8 @@ class LineChart extends React.Component {
         minValue: 0,
         maxValue: this.props.people
       },
-      isStacked: "relative",
-      animation: { duration: 2000 }
+      isStacked: "relative"
+      // animation: { duration: 2000 }
       // explorer: { axis: 'horizontal', keepinBound: true }
     }
   };

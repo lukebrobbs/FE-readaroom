@@ -1,18 +1,18 @@
-import { Chart } from 'react-google-charts';
-import React from 'react';
-import produce from 'immer';
-import Nav from '../Nav';
+import { Chart } from "react-google-charts";
+import React from "react";
+import produce from "immer";
+import Nav from "../Nav";
 
 class TimeChart extends React.Component {
   state = {
     options: {
-      title: 'Audience Emotions over Time',
+      title: "Audience Emotions over Time",
       hAxis: {
-        title: 'Time',
+        title: "Time",
         viewWindow: { min: 0, max: 120 }
       },
-      vAxis: { title: '% audience', minValue: 0, maxValue: 1 },
-      isStacked: 'relative'
+      vAxis: { title: "% audience", minValue: 0, maxValue: 1 },
+      isStacked: "true"
       // animation: { duration: 2000 }
       // explorer: { axis: 'horizontal', keepinBound: true }
     }
@@ -45,8 +45,18 @@ class TimeChart extends React.Component {
           data={this.props.rows}
           options={this.state.options}
           graph_id="AreaChart"
-          width={'100%'}
-          height={'400px'}
+          width={"100%"}
+          height={"400px"}
+          legend_toggle
+        />
+        <Chart
+          id="column-chart"
+          chartType="ColumnChart"
+          data={this.props.rows}
+          options={this.state.options}
+          graph_id="ColumnChart"
+          width={"100%"}
+          height={"400px"}
           legend_toggle
         />
       </React.Fragment>
