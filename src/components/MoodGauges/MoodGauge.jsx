@@ -33,7 +33,7 @@ class MoodGauge extends React.Component {
         >
           {gaugesToShow.map((emotionObject, i) => {
             const name = emotionObject.emotion;
-            const percent = emotionObject.percentage;
+            const percent = emotionObject.percentage || 0;
             const goodEmotionGauge = emotionObject.goodEmotionGauge;
             return (
               <div id={name} key={i} className="m-4">
