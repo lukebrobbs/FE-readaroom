@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Stats from "./Stats";
-import moment from "moment";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Stats from './Stats';
+import moment from 'moment';
 
 const calculateAverageAge = dataPoints => {
   if (dataPoints.length) {
@@ -10,9 +10,10 @@ const calculateAverageAge = dataPoints => {
       lastDataPoint.data.reduce((a, b) => {
         return a + b.ageGroup;
       }, 0) / lastDataPoint.data.length;
-    return `${averageAge} years`;
+    const roundedAge = Math.floor(averageAge);
+    return `${roundedAge}`;
   }
-  return "N/A";
+  return 'N/A';
 };
 
 const calculateNumberOfFaces = dataPoints => {
@@ -20,7 +21,7 @@ const calculateNumberOfFaces = dataPoints => {
     const lastDataPoint = dataPoints[dataPoints.length - 1];
     return lastDataPoint.data.length;
   }
-  return "No faces currently detected";
+  return 0;
 };
 
 const calculateSessionDuration = dataPoints => {
@@ -29,7 +30,7 @@ const calculateSessionDuration = dataPoints => {
     const duration = moment(startTime).fromNow(true);
     return startTime;
   }
-  return "--:--:--";
+  return '--:--:--';
 };
 
 const mapStateToProps = (state, ownProps) => {
