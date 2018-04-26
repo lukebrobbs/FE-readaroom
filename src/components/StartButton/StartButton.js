@@ -83,11 +83,10 @@ const StartButton = ({ onClick, addToDataPoint, updateAll }) => {
       processGraphRows(time, filteredDocData)
     );
   });
-  return (
-    <button onClick={onClick} className="btn btn-success">
-      Start
-    </button>
-  );
+  return null;
+  // <button onClick={onClick} className="btn btn-success">
+  //   Start
+  // </button>
 };
 
 export default StartButton;
