@@ -1,21 +1,21 @@
-import { Chart } from "react-google-charts";
-import React from "react";
-import produce from "immer";
+import { Chart } from 'react-google-charts';
+import React from 'react';
+import produce from 'immer';
 
 class TimeChart extends React.Component {
   state = {
     options: {
-      title: "Audience Emotions over Time",
-      colors: ["#e0440e", "red", "blue", "grey", "orange", "yellow", "green"],
+      title: 'Audience Emotions over Time',
+      colors: ['pink', 'blue', 'yellow', 'grey', 'orange', 'red', 'green'],
       hAxis: {
-        title: "Time(seconds)",
+        title: 'Time(seconds)',
         viewWindow: {
           min: this.props.data[0] < 120 ? 0 : this.props.data[0] - 120,
           max: this.props.data[0] < 120 ? 120 : this.props.data[0]
         }
       },
-      vAxis: { title: "% audience", minValue: 0, maxValue: 1 },
-      isStacked: "true"
+      vAxis: { title: '% audience', minValue: 0, maxValue: 1 },
+      isStacked: 'true'
       // animation: { duration: 2000 }
       // explorer: { axis: 'horizontal', keepinBound: true }
     }
@@ -49,8 +49,8 @@ class TimeChart extends React.Component {
           data={this.props.rows}
           options={this.state.options}
           graph_id="AreaChart"
-          width={"100%"}
-          height={"400px"}
+          width={'100%'}
+          height={'400px'}
           legend_toggle
         />
         <Chart
@@ -59,8 +59,8 @@ class TimeChart extends React.Component {
           data={this.props.rows}
           options={this.state.options}
           graph_id="ColumnChart"
-          width={"100%"}
-          height={"400px"}
+          width={'100%'}
+          height={'400px'}
           legend_toggle
         />
       </React.Fragment>
