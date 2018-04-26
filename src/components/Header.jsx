@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../images/RAR-header.png";
+import banner from "../images/RAR-header-light.png";
 
 const Header = () => (
   <header>

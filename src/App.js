@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import PageNotFound from "./components/404/404.jsx";
 import Header from "./components/Header";
 import StartButtonContainer from "./components/StartButton/StartButtonContainer";
 import Home from "./components/Home/Home";
@@ -20,13 +21,16 @@ class App extends Component {
         <React.Fragment>
           <Header />
           <StartButtonContainer />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/setup" component={Setup} />
-          <Route exact path="/timechart" component={TimeChartContainer} />
-          <Route exact path="/moodbars" component={MoodBarsContainer} />
-          <Route exact path="/moodgauges" component={MoodGaugeContainer} />
-          <Route exact path="/summary" component={SummaryContainer} />
-          <Route exact path="/livestats" component={LiveStats} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/setup" component={Setup} />
+            <Route exact path="/timechart" component={TimeChartContainer} />
+            <Route exact path="/moodbars" component={MoodBarsContainer} />
+            <Route exact path="/moodgauges" component={MoodGaugeContainer} />
+            <Route exact path="/summary" component={SummaryContainer} />
+            <Route exact path="/livestats" component={LiveStats} />
+            <Route path="/*" component={PageNotFound} />
+          </Switch>
           <Footer />
         </React.Fragment>
       </Router>
