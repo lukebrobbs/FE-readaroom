@@ -22,6 +22,7 @@ class TimeChart extends React.Component {
     }
   };
   shouldComponentUpdate(nextProps) {
+    console.log(this.props.data[0], nextProps.data[0]);
     if (this.props.data[0] !== nextProps.data[0]) {
       return true;
     } else return false;

@@ -18,7 +18,7 @@ function dataPoints(state = [], action) {
         return draftState;
       case UPDATE_ALL:
         draftState.push({
-          timeStamp: action.timeStamp,
+          timestamp: action.timeStamp,
           data: action.dataPoint
         });
         return draftState;

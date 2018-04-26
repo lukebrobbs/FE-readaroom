@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     data: processLatestDatapoints(state.dataPoints),
     rows: state.lineChartRows,
-    people: state.dataPoints.length ? state.dataPoints[0].data.length + 5 : 0
+    people: state.dataPoints.length ? state.dataPoints[0].data.length : 0
   };
 };
 const mapDispatchToProps = dispatch => {

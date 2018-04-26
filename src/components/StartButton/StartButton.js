@@ -29,7 +29,7 @@ const processChartRows = (timeStamp, dataPoints) => {
     });
     return emotionPercentages;
   }
-  return [];
+  return [timeStamp, 0, 0, 0, 0, 0, 0, 0];
 };
 const processGraphRows = (timeStamp, dataPoints) => {
   if (dataPoints.length) {
@@ -53,13 +53,12 @@ const processGraphRows = (timeStamp, dataPoints) => {
     });
     return emotionPercentages;
   }
-  return [];
+  return [timeStamp, 0, 0];
 };
 
 const StartButton = ({ onClick, addToDataPoint, updateAll }) => {
   let time = 0;
   sessionsRef.onSnapshot(function(doc) {
-    let now = time + 3;
     time += 3;
     let docData = doc.data();
     const filteredDocData = docData.emotiondata.map(data => {
@@ -77,12 +76,11 @@ const StartButton = ({ onClick, addToDataPoint, updateAll }) => {
       });
       return data;
     });
-    // return updateAll(time++, filteredDocData)
     return updateAll(
-      time++,
+      time,
       filteredDocData,
-      processChartRows(time++, filteredDocData),
-      processGraphRows(time++, filteredDocData)
+      processChartRows(time, filteredDocData),
+      processGraphRows(time, filteredDocData)
     );
   });
   return (

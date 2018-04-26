@@ -1,15 +1,15 @@
-import React from 'react';
-import logo from '../images/logo.png';
+import React from "react";
+import banner from "../images/RAR-header.png";
 
 const Header = () => (
   <header className="container-fluid bg-dark py-4">
     <div className="container justify-content-between">
       <figure>
         <img
-          className="d-inline mr-4 float-left"
-          src={logo}
-          height="100px"
-          width="100px"
+          // className="d-inline mr-4 float-left"
+          src={banner}
+          // height="100px"
+          // width="100px"
           alt="Read a room logo, a green square with rounded edges and two r characters"
         />
       </figure>
