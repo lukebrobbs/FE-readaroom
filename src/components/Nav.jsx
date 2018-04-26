@@ -7,7 +7,7 @@ class Nav extends Component {
     const { toggleCheckbox } = this.props;
 
     return (
-      <nav className="navbar bg-light align-content-center container-fluid">
+      <nav className="navbar bg-light align-items-center container">
         <div className="form-check form-check-inline ">
           <input
             onChange={() => toggleCheckbox('stats')}
