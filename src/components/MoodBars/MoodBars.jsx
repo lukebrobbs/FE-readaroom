@@ -17,7 +17,7 @@ class MoodBars extends React.Component {
 
   render() {
     return (
-      <div className="container justify-content-center border bg-light">
+      <div className="container justify-content-center border bg-light my-4">
         <div>
           <div className="row align-items-center my-3">
             <div className="col-auto px-0 mx-1">
