@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import StatsContainer from './Stats/StatsContainer';
-import TimeChartContainer from './TimeChart/TimeChartContainer';
-import MoodbarsContainer from './MoodBars/MoodBarsContainer';
-import MoodGaugesContainer from './MoodGauges/MoodGaugeContainer';
-import LineChartContainer from './LineChart/LineChartContainer';
-import Nav from './Nav';
+import React, { Component } from "react";
+import StatsContainer from "./Stats/StatsContainer";
+import TimeChartContainer from "./TimeChart/TimeChartContainer";
+import MoodbarsContainer from "./MoodBars/MoodBarsContainer";
+import MoodGaugesContainer from "./MoodGauges/MoodGaugeContainer";
+import LineChartContainer from "./LineChart/LineChartContainer";
+import Nav from "./Nav";
 
 class LiveStats extends Component {
   state = {
-    currentlyRendered: 'moodBoard'
+    currentlyRendered: "moodBoard"
   };
 
-  toggleCheckbox = (event, toToggle) => {
+  toggleCheckbox = toToggle => {
     this.setState({ currentlyRendered: toToggle });
   };
 
@@ -21,10 +21,10 @@ class LiveStats extends Component {
       <React.Fragment>
         <Nav toggleCheckbox={this.toggleCheckbox} />
         <StatsContainer />
-        {currentlyRendered === 'moodBoard' && <MoodbarsContainer />}
-        {currentlyRendered === 'moodBoard' && <MoodGaugesContainer />}
-        {currentlyRendered === 'charts' && <TimeChartContainer />}
-        {currentlyRendered === 'graphs' && <LineChartContainer />}
+        {currentlyRendered === "moodBoard" && <MoodbarsContainer />}
+        {currentlyRendered === "moodBoard" && <MoodGaugesContainer />}
+        {currentlyRendered === "charts" && <TimeChartContainer />}
+        {currentlyRendered === "graphs" && <LineChartContainer />}
       </React.Fragment>
     );
   }

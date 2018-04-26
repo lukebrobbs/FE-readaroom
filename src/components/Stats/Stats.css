@@ -19,3 +19,7 @@ h2 {
     font-size: 1.6rem;
   }
 }
+.cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
