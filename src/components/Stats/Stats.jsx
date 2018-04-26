@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Stats = ({ facesRecognised, averageAge, sessionDuration }) => {
   return (
@@ -23,18 +23,6 @@ const Stats = ({ facesRecognised, averageAge, sessionDuration }) => {
         </div>
         <div class="input-group-append">
           <span class="input-group-text">years</span>
-        </div>
-      </div>
-
-      <div className="input-group m-2">
-        <div className="col-auto d-flex align-items-center">
-          <h5 className="text-right mb-0">Session Duration:</h5>
-        </div>
-        <div className="col-2 bg-white border d-flex align-items-center">
-          <h5 className="mb-0">{sessionDuration}</h5>
-        </div>
-        <div class="input-group-append">
-          <span class="input-group-text">seconds</span>
         </div>
       </div>
     </div>

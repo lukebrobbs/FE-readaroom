@@ -1,6 +1,5 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import MoodBars from './MoodBars';
+import { connect } from "react-redux";
+import MoodBars from "./MoodBars";
 
 const processData = dataPoints => {
   if (dataPoints.length) {
@@ -13,7 +12,6 @@ const processData = dataPoints => {
       SURPRISED: 0,
       CALM: 0
     };
-    const emotionPercentages = [dataPoints[dataPoints.length - 1].timestamp];
     dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
       dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
     });
