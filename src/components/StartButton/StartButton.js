@@ -24,7 +24,7 @@ const StartButton = ({ onClick, addToDataPoint }) => {
       });
       return data;
     });
-    return addToDataPoint(docData.timestamp, filteredDocData);
+    return addToDataPoint(time++, filteredDocData);
   });
   return (
     <button onClick={onClick} className="btn btn-success">
