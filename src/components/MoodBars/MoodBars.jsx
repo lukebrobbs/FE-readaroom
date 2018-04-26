@@ -17,8 +17,8 @@ class MoodBars extends React.Component {
 
   render() {
     return (
-      <div className="container row justify-content-center mx-auto">
-        <div className="container border bg-light">
+      <div className="container justify-content-center border bg-light">
+        <div>
           <div className="row align-items-center my-3">
             <div className="col-auto px-0 mx-1">
               <span> </span>
@@ -66,12 +66,15 @@ class MoodBars extends React.Component {
           </div>
         </div>
 
-        <div className="legend ">
-          <div className="row align-items-center my-3">
-            <div className="col px-0 mx-1">
-              <span>Happy </span>
+        <div className="legend row justify-content-center">
+          <div className="d-flex justify-content-centre my-3">
+            <div
+              className="d-flex justify-content-end mx-2"
+              style={{ width: '100px' }}
+            >
+              <span className="align-text-right">Happy </span>
             </div>
-            <div className="progress p-0 col" style={{ height: '25px' }}>
+            <div className="progress" style={{ height: '25px' }}>
               <div
                 className="progress-bar bg-success progress-bar-striped"
                 role="progressbar"
@@ -83,16 +86,19 @@ class MoodBars extends React.Component {
                 style={{ width: '25px' }}
               />
             </div>
-            <div className="col px-0 mx-1">
-              <span> Sad</span>
+            <div className="mx-2" style={{ width: '100px' }}>
+              <span style={{ width: '100px' }}> Sad</span>
             </div>
           </div>
 
-          <div className="row align-items-center my-3">
-            <div className="col px-0 mx-1">
-              <span>Calm </span>
+          <div className="d-flex justify-content-centre my-3">
+            <div
+              className="d-flex justify-content-end mx-2"
+              style={{ width: '100px' }}
+            >
+              <span className="align-text-right">Calm </span>
             </div>
-            <div className="progress p-0 col" style={{ height: '25px' }}>
+            <div className="progress" style={{ height: '25px' }}>
               <div
                 className="progress-bar bg-warning progress-bar-striped"
                 role="progressbar"
@@ -104,8 +110,8 @@ class MoodBars extends React.Component {
                 style={{ width: '25px' }}
               />
             </div>
-            <div className="col-auto px-0 mx-1">
-              <span> Angry</span>
+            <div className="mx-2" style={{ width: '100px' }}>
+              <span style={{ width: '100px' }}> Angry</span>
             </div>
           </div>
         </div>
