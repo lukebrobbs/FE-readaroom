@@ -18,46 +18,54 @@ class MoodBars extends React.Component {
   render() {
     return (
       <div>
-        <h1>Mood Bars</h1>
-        <div className="container">
-          <div id="bar-one" className="">
-            <h1 className="float-left">😃</h1>
-            <h1 className="float-right">🤢</h1>
-          </div>
-          <div className="progress my-4" style={{ height: '50px' }}>
-            <div
-              className="progress-bar bg-success"
-              role="progressbar"
-              style={{ width: this.props.data.happy + '%' }}
-            >
-              <h3>Happy</h3>
+        <div className="container border bg-light">
+          <div className="row align-items-center my-3">
+            <div className="col-auto px-0 mx-1">
+              <h1>😃</h1>
             </div>
-            <div
-              className="progress-bar bg-warning"
-              role="progressbar"
-              style={{ width: this.props.data.sad + '%' }}
-            >
-              <h3>Sad</h3>
+            <div className="progress p-0 col" style={{ height: '50px' }}>
+              <div
+                className="progress-bar bg-success"
+                role="progressbar"
+                style={{ width: this.props.data.happy + '%' }}
+              >
+                <h3>Happy</h3>
+              </div>
+              <div
+                className="progress-bar bg-warning"
+                role="progressbar"
+                style={{ width: this.props.data.sad + '%' }}
+              >
+                <h3>Sad</h3>
+              </div>
+            </div>
+            <div className="col-auto px-0 mx-1">
+              <h1>🤢</h1>
             </div>
           </div>
-          <div id="bar-two" className="">
-            <h1 className="float-left">😇</h1>
-            <h1 className="float-right">👹</h1>
-          </div>
-          <div className="progress my-4 float-none" style={{ height: '50px' }}>
-            <div
-              className="progress-bar bg-info"
-              role="progressbar"
-              style={{ width: this.props.data.calm + '%' }}
-            >
-              <h3>Calm</h3>
+
+          <div className="row align-items-center my-3">
+            <div className="col-auto px-0 mx-1">
+              <h1>😇</h1>
             </div>
-            <div
-              className="progress-bar bg-danger"
-              role="progressbar"
-              style={{ width: this.props.data.angry + '%' }}
-            >
-              <h3>Angry</h3>
+            <div className="progress p-0 col" style={{ height: '50px' }}>
+              <div
+                className="progress-bar bg-info"
+                role="progressbar"
+                style={{ width: this.props.data.calm + '%' }}
+              >
+                <h3>Calm</h3>
+              </div>
+              <div
+                className="progress-bar bg-danger"
+                role="progressbar"
+                style={{ width: this.props.data.angry + '%' }}
+              >
+                <h3>Angry</h3>
+              </div>
+            </div>
+            <div className="col-auto px-0 mx-1">
+              <h1>👹</h1>
             </div>
           </div>
         </div>
