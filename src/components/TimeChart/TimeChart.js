@@ -7,8 +7,9 @@ class TimeChart extends React.Component {
   state = {
     options: {
       title: "Audience Emotions over Time",
+      colors: ["#e0440e", "red", "blue", "grey", "orange", "yellow", "green"],
       hAxis: {
-        title: "Time",
+        title: "Time(seconds)",
         viewWindow: { min: 0, max: 120 }
       },
       vAxis: { title: "% audience", minValue: 0, maxValue: 1 },

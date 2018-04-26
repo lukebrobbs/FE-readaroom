@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Nav extends Component {
   state = {};
@@ -7,10 +7,43 @@ class Nav extends Component {
     const { toggleCheckbox } = this.props;
 
     return (
-      <nav className="navbar bg-light align-items-center container">
-        <div className="form-check form-check-inline ">
+      <nav className="navbar bg-light justify-content-center">
+        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input
+              type="radio"
+              name="options"
+              id="option1"
+              // autocomplete="off"
+              onClick={e => toggleCheckbox(e, "moodBoard")}
+              checked
+            />{" "}
+            MoodBoards
+          </label>
+          <label class="btn btn-secondary">
+            <input
+              type="radio"
+              name="options"
+              id="option2"
+              onClick={e => toggleCheckbox(e, "charts")}
+              // autocomplete="off"
+            />{" "}
+            Charts
+          </label>
+          <label class="btn btn-secondary">
+            <input
+              type="radio"
+              name="options"
+              id="option3"
+              onClick={e => toggleCheckbox(e, "graphs")}
+              // autocomplete="off"
+            />{" "}
+            Graphs
+          </label>
+        </div>
+        {/* <div className="form-check form-check-inline ">
           <input
-            onChange={() => toggleCheckbox('stats')}
+            onChange={() => toggleCheckbox("stats")}
             className="form-check-input mx-2"
             type="checkbox"
             id="stats"
@@ -22,7 +55,7 @@ class Nav extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            onChange={() => toggleCheckbox('bars')}
+            onChange={() => toggleCheckbox("bars")}
             className="form-check-input mx-2"
             type="checkbox"
             id="bars"
@@ -34,7 +67,7 @@ class Nav extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            onChange={() => toggleCheckbox('gauges')}
+            onChange={() => toggleCheckbox("gauges")}
             className="form-check-input mx-2"
             type="checkbox"
             id="gauges"
@@ -45,7 +78,7 @@ class Nav extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            onChange={() => toggleCheckbox('timechart')}
+            onChange={() => toggleCheckbox("timechart")}
             className="form-check-input mx-2"
             type="checkbox"
             id="timechart"
@@ -56,7 +89,7 @@ class Nav extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            onChange={() => toggleCheckbox('linechart')}
+            onChange={() => toggleCheckbox("linechart")}
             className="form-check-input mx-2"
             type="checkbox"
             id="linechart"
@@ -64,7 +97,7 @@ class Nav extends Component {
           <label className="form-check-label" htmlFor="inlineCheckbox5">
             Line Chart
           </label>
-        </div>
+        </div> */}
       </nav>
     );
   }

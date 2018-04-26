@@ -8,27 +8,24 @@ import Nav from "./Nav";
 
 class LiveStats extends Component {
   state = {
-    stats: true,
-    bars: true,
-    gauges: false,
-    timechart: false,
-    linechart: false
+    currentlyRendered: "moodBoard"
   };
 
-  toggleCheckbox = toToggle => {
-    this.setState({ [toToggle]: !this.state[toToggle] });
+  toggleCheckbox = (event, toToggle) => {
+    console.log(event.target);
+    this.setState({ currentlyRendered: toToggle });
   };
 
   render() {
-    const { stats, bars, gauges, timechart, linechart } = this.state;
+    const { currentlyRendered } = this.state;
     return (
       <React.Fragment>
         <Nav toggleCheckbox={this.toggleCheckbox} />
-        {stats && <StatsContainer />}
-        {bars && <MoodbarsContainer />}
-        {gauges && <MoodGaugesContainer />}
-        {timechart && <TimeChartContainer />}
-        {linechart && <LineChartContainer />}
+        <StatsContainer />
+        {currentlyRendered === "moodBoard" && <MoodbarsContainer />}
+        {currentlyRendered === "moodBoard" && <MoodGaugesContainer />}
+        {currentlyRendered === "charts" && <TimeChartContainer />}
+        {currentlyRendered === "graphs" && <LineChartContainer />}
       </React.Fragment>
     );
   }
