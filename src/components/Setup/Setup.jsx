@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Setup extends Component {
   state = {
-    sessionName: '',
-    username: ''
+    sessionName: "",
+    username: ""
   };
 
   onChange = e => {
@@ -26,7 +26,7 @@ class Setup extends Component {
         </nav>
         <div className="row">
           <p className="col m-4">
-            -To access all previous sessions, click on the HISTORY button above.{' '}
+            -To access all previous sessions, click on the HISTORY button above.{" "}
             <br />
             -Or, to setup a NEW session, complete the form below and a new
             session recording will begin on START.
@@ -69,7 +69,7 @@ class Setup extends Component {
           <div className="mx-2">
             <Link
               onClick={this.props.onClick}
-              to="/timechart"
+              to="/livestats"
               className="btn btn-success"
             >
               Start
