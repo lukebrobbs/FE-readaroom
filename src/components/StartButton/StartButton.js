@@ -1,4 +1,3 @@
-import React from "react";
 import db from "../../config/config.js";
 
 const sessionsRef = db.collection("readaroom").doc("currentData");
@@ -14,7 +13,6 @@ const processChartRows = (timeStamp, dataPoints) => {
       SAD: 0,
       HAPPY: 0
     };
-    console.log(dataPoints);
     const emotionPercentages = [timeStamp];
     dataPoints.forEach(dataPoint => {
       dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
@@ -45,9 +43,7 @@ const processGraphRows = (timeStamp, dataPoints) => {
         }
       });
     });
-    const totalRegisteredEmotions = Object.values(emotions).reduce(
-      (acc, value) => (acc += value)
-    );
+
     Object.values(emotions).forEach(value => {
       emotionPercentages.push(value);
     });

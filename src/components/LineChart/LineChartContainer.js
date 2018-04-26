@@ -17,9 +17,7 @@ const processLatestDatapoints = dataPoints => {
         }
       });
     });
-    const totalRegisteredEmotions = Object.values(emotions).reduce(
-      (acc, value) => (acc += value)
-    );
+
     Object.values(emotions).forEach(value => {
       emotionPercentages.push(value);
     });

@@ -1,7 +1,6 @@
 import { Chart } from "react-google-charts";
 import React from "react";
 import produce from "immer";
-import Nav from "../Nav";
 
 class TimeChart extends React.Component {
   state = {

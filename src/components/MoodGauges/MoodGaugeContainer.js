@@ -1,6 +1,5 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import MoodGauge from './MoodGauge';
+import { connect } from "react-redux";
+import MoodGauge from "./MoodGauge";
 
 const processData = dataPoints => {
   if (dataPoints.length) {
@@ -13,7 +12,6 @@ const processData = dataPoints => {
       SURPRISED: 0,
       CALM: 0
     };
-    const emotionPercentages = [dataPoints[dataPoints.length - 1].timestamp];
     dataPoints[dataPoints.length - 1].data.forEach(dataPoint => {
       dataPoint.emotions.forEach(emotion => (emotions[emotion.Type] += 1));
     });
@@ -21,50 +19,50 @@ const processData = dataPoints => {
 
     return [
       {
-        emotion: 'Happy',
+        emotion: "Happy",
         percentage: Math.round(emotions.HAPPY / numTrackedPeople * 100),
         goodEmotionGauge: true
       },
       {
-        emotion: 'Sad',
+        emotion: "Sad",
         percentage: Math.round(emotions.SAD / numTrackedPeople * 100),
         goodEmotionGauge: false
       },
       {
-        emotion: 'Calm',
+        emotion: "Calm",
         percentage: Math.round(emotions.CALM / numTrackedPeople * 100),
         goodEmotionGauge: true
       },
       {
-        emotion: 'Angry',
+        emotion: "Angry",
         percentage: Math.round(emotions.ANGRY / numTrackedPeople * 100),
         goodEmotionGauge: false
       },
       {
-        emotion: 'Confused',
+        emotion: "Confused",
         percentage: Math.round(emotions.CONFUSED / numTrackedPeople * 100),
         goodEmotionGauge: false
       },
       {
-        emotion: 'Disgusted',
+        emotion: "Disgusted",
         percentage: Math.round(emotions.DISGUSTED / numTrackedPeople * 100),
         goodEmotionGauge: false
       },
       {
-        emotion: 'Surprised',
+        emotion: "Surprised",
         percentage: Math.round(emotions.SURPRISED / numTrackedPeople * 100),
         goodEmotionGauge: false
       }
     ];
   }
   return [
-    { emotion: 'Happy', percentage: 0, goodEmotionGauge: true },
-    { emotion: 'Sad', percentage: 0, goodEmotionGauge: false },
-    { emotion: 'Angry', percentage: 0, goodEmotionGauge: false },
-    { emotion: 'Calm', percentage: 0, goodEmotionGauge: true },
-    { emotion: 'Disgusted', percentage: 0, goodEmotionGauge: false },
-    { emotion: 'Surprised', percentage: 0, goodEmotionGauge: true },
-    { emotion: 'Confused', percentage: 0, goodEmotionGauge: false }
+    { emotion: "Happy", percentage: 0, goodEmotionGauge: true },
+    { emotion: "Sad", percentage: 0, goodEmotionGauge: false },
+    { emotion: "Angry", percentage: 0, goodEmotionGauge: false },
+    { emotion: "Calm", percentage: 0, goodEmotionGauge: true },
+    { emotion: "Disgusted", percentage: 0, goodEmotionGauge: false },
+    { emotion: "Surprised", percentage: 0, goodEmotionGauge: true },
+    { emotion: "Confused", percentage: 0, goodEmotionGauge: false }
   ];
 };
 
