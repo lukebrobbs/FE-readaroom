@@ -1,11 +1,11 @@
-import { combineReducers } from "redux";
-import produce from "immer";
+import { combineReducers } from 'redux';
+import produce from 'immer';
 import {
   ADD_TO_TIME_CHART_ROWS,
   ADD_TO_LINE_CHART_ROWS,
   ADD_DATA_POINT,
   UPDATE_ALL
-} from "./actions";
+} from './actions';
 
 function dataPoints(state = [], action) {
   return produce(state, draftState => {
@@ -13,13 +13,15 @@ function dataPoints(state = [], action) {
       case ADD_DATA_POINT:
         draftState.push({
           timestamp: action.timeStamp,
-          data: action.dataPoint
+          data: action.dataPoint,
+          liveTimestamp: action.liveTimestamp
         });
         return draftState;
       case UPDATE_ALL:
         draftState.push({
           timestamp: action.timeStamp,
-          data: action.dataPoint
+          data: action.dataPoint,
+          liveTimestamp: action.liveTimestamp
         });
         return draftState;
       default:
@@ -28,7 +30,7 @@ function dataPoints(state = [], action) {
   });
 }
 function lineChartRows(
-  state = [["Time (s)", "Confused", "Happy"], [0, 0, 0]],
+  state = [['Time (s)', 'Confused', 'Happy'], [0, 0, 0]],
   action
 ) {
   return produce(state, draftState => {
@@ -48,14 +50,14 @@ function lineChartRows(
 function timeChartRows(
   state = [
     [
-      "Time (s)",
-      "Disgusted",
-      "Angry",
-      "Calm",
-      "Suprised",
-      "Confused",
-      "Sad",
-      "Happy"
+      'Time (s)',
+      'Disgusted',
+      'Angry',
+      'Calm',
+      'Suprised',
+      'Confused',
+      'Sad',
+      'Happy'
     ],
     [0, 0, 0, 0, 0, 0, 0, 0]
   ],

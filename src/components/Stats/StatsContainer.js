@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
-import Stats from "./Stats";
+import { connect } from 'react-redux';
+import Stats from './Stats';
 
 const calculateAverageAge = dataPoints => {
-  if (dataPoints.length) {
+  if (dataPoints.length > 1) {
     const lastDataPoint = dataPoints[dataPoints.length - 1];
     const averageAge =
       lastDataPoint.data.reduce((a, b) => {
@@ -11,30 +11,31 @@ const calculateAverageAge = dataPoints => {
     const roundedAge = Math.floor(averageAge);
     return `${roundedAge}`;
   }
-  return "N/A";
+  return '-';
 };
 
 const calculateNumberOfFaces = dataPoints => {
-  if (dataPoints.length) {
+  if (dataPoints.length > 1) {
     const lastDataPoint = dataPoints[dataPoints.length - 1];
     return lastDataPoint.data.length;
   }
-  return 0;
+  return '-';
 };
 
-const calculateSessionDuration = dataPoints => {
-  if (dataPoints.length) {
-    const startTime = dataPoints[dataPoints.length - 1].timestamp;
-    return startTime;
+const calculateSessionLatency = dataPoints => {
+  if (dataPoints.length > 1) {
+    const timeNow = Date.now();
+    const delay = dataPoints[dataPoints.length - 1].liveTimestamp - timeNow;
+    return delay / 100 + 's';
   }
-  return "--:--:--";
+  return '-';
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     averageAge: calculateAverageAge(state.dataPoints),
     facesRecognised: calculateNumberOfFaces(state.dataPoints),
-    sessionDuration: calculateSessionDuration(state.dataPoints)
+    sessionLatency: calculateSessionLatency(state.dataPoints)
   };
 };
 const mapDispatchToProps = dispatch => {

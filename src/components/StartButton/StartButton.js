@@ -1,6 +1,6 @@
-import db from "../../config/config.js";
+import db from '../../config/config.js';
 
-const sessionsRef = db.collection("readaroom").doc("currentData");
+const sessionsRef = db.collection('readaroom').doc('currentData');
 
 const processChartRows = (timeStamp, dataPoints) => {
   if (dataPoints.length) {
@@ -38,7 +38,7 @@ const processGraphRows = (timeStamp, dataPoints) => {
     const emotionPercentages = [timeStamp];
     dataPoints.forEach(dataPoint => {
       dataPoint.emotions.forEach(emotion => {
-        if (emotion.Type === "HAPPY" || emotion.Type === "CONFUSED") {
+        if (emotion.Type === 'HAPPY' || emotion.Type === 'CONFUSED') {
           emotions[emotion.Type] += 1;
         }
       });
@@ -61,20 +61,22 @@ const StartButton = ({ onClick, addToDataPoint, updateAll }) => {
       let happyOrSadCount = 0;
       let calmOrAngryCount = 0;
       data.emotions = data.emotions.filter(emotion => {
-        if (emotion.Type === "HAPPY" || emotion.Type === "SAD") {
+        if (emotion.Type === 'HAPPY' || emotion.Type === 'SAD') {
           ++happyOrSadCount;
           return happyOrSadCount === 1;
         }
-        if (emotion.Type === "CALM" || emotion.Type === "ANGRY") {
+        if (emotion.Type === 'CALM' || emotion.Type === 'ANGRY') {
           ++calmOrAngryCount;
           return calmOrAngryCount === 1;
         } else return true;
       });
       return data;
     });
+    let liveTimestamp = docData.timestamp;
     return updateAll(
       time,
       filteredDocData,
+      liveTimestamp,
       processChartRows(time, filteredDocData),
       processGraphRows(time, filteredDocData)
     );

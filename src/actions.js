@@ -1,9 +1,9 @@
 // export const CHANGE_AUTHENTICATED_USER = 'CHANGE_AUTHENTICATED_USER';
 /* Actions */
-export const ADD_TO_TIME_CHART_ROWS = "ADD_TO_TIME_CHART_ROWS";
-export const ADD_TO_LINE_CHART_ROWS = "ADD_TO_LINE_CHART_ROWS";
-export const ADD_DATA_POINT = "ADD_DATA_POINT";
-export const UPDATE_ALL = "UPDATE_ALL";
+export const ADD_TO_TIME_CHART_ROWS = 'ADD_TO_TIME_CHART_ROWS';
+export const ADD_TO_LINE_CHART_ROWS = 'ADD_TO_LINE_CHART_ROWS';
+export const ADD_DATA_POINT = 'ADD_DATA_POINT';
+export const UPDATE_ALL = 'UPDATE_ALL';
 
 /* Action Creators */
 export function addToTimeChartRows(coordinates) {
@@ -18,6 +18,7 @@ export function addDataPoint(timeStamp, dataPoint) {
 export function updateAll(
   timeStamp,
   dataPoint,
+  liveTimestamp,
   chartCoordinates,
   graphCoordinates
 ) {
@@ -25,6 +26,7 @@ export function updateAll(
     type: UPDATE_ALL,
     timeStamp,
     dataPoint,
+    liveTimestamp,
     chartCoordinates,
     graphCoordinates
   };
