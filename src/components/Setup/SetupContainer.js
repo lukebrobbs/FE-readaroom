@@ -5,7 +5,6 @@ import addInput from '../../actions';
 
 const setupSession = session => {
   const hardCoded = {username: 'hello', sessionName='mySession'}
-  console.log('hello');
   dispatch(addSession, hardCoded)
 };
 

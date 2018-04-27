@@ -19,7 +19,7 @@ class MoodBars extends React.Component {
     return (
       <div className="container justify-content-center border bg-light my-4">
         <div>
-          <h2 className="text-center">
+          <h2 className="text-center mt-3">
             <strong>Mood Bars</strong>
           </h2>
 

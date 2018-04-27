@@ -1,16 +1,16 @@
-import sampleSize from "lodash.samplesize";
-import db from "../config/config.js";
+import sampleSize from 'lodash.samplesize';
+import db from '../config/config.js';
 
 const utils = {
   createTestEmotionData: () => {
     const emotionTypes = [
-      "HAPPY",
-      "SAD",
-      "ANGRY",
-      "CONFUSED",
-      "DISGUSTED",
-      "SURPRISED",
-      "CALM"
+      'HAPPY',
+      'SAD',
+      'ANGRY',
+      'CONFUSED',
+      'DISGUSTED',
+      'SURPRISED',
+      'CALM'
     ];
     const topThreeEmotions = sampleSize(emotionTypes, 3);
     return topThreeEmotions.map(emotion => {
@@ -18,13 +18,13 @@ const utils = {
     });
   },
   getMatchedStudents: () => {
-    const studentsRef = db.collection("students");
+    const studentsRef = db.collection('students');
     return studentsRef.get();
   },
   addStudentsToSession: () => {
     const students = [];
-    const studentsRef = db.collection("students");
-    const sessionsRef = db.doc("sessions/ZmrKU1MgAHfNFnqF2VJe");
+    const studentsRef = db.collection('students');
+    const sessionsRef = db.doc('sessions/ZmrKU1MgAHfNFnqF2VJe');
     studentsRef
       .get()
       .then(response => {
@@ -34,16 +34,12 @@ const utils = {
         });
         return sessionsRef.update({ students });
       })
-      .then(session => {
-        console.log("update complete");
-      });
+      .then(session => {});
   },
   addEmotions: () => {
-    const sessionsRef = db.collection("readaroom").doc("currentData");
+    const sessionsRef = db.collection('readaroom').doc('currentData');
 
-    sessionsRef.onSnapshot(function(doc) {
-      console.log("Current data: ", doc.data());
-    });
+    sessionsRef.onSnapshot(function(doc) {});
   }
 };
 

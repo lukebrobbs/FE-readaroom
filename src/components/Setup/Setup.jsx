@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Setup extends Component {
   state = {
-    sessionName: "",
-    username: ""
+    sessionName: '',
+    username: ''
   };
 
   onChange = e => {
@@ -15,9 +15,8 @@ class Setup extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
-      <div className="d-inline-block Container d-flex flex-column">
+      <div className="d-inline-block container d-flex flex-column">
         <nav className="navbar bg-light container-fluid">
           <h1 className="navbar-brand">Setup</h1>
           <Link to="/summary" className="nav-link btn btn-success mx-2">
@@ -26,7 +25,7 @@ class Setup extends Component {
         </nav>
         <div className="row">
           <p className="col m-4">
-            -To access all previous sessions, click on the HISTORY button above.{" "}
+            -To access all previous sessions, click on the HISTORY button above.{' '}
             <br />
             -Or, to setup a NEW session, complete the form below and a new
             session recording will begin on START.
