@@ -13,7 +13,6 @@
 *:after {
   box-sizing: inherit;
   position: relative;
-  /* tap-highlight-color: rgba(0, 0, 0, 0); */
 }
 
 .boxed {
@@ -34,12 +33,12 @@
 
 .centered-container {
   position: absolute;
-  top: 75%;
+  top: 50%;
   left: 0;
   right: 0;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  max-width: 75%;
+  max-width: 50%;
   margin: 0 auto;
   text-align: center;
 }
