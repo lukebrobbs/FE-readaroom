@@ -1,35 +1,34 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Nav extends Component {
   state = {
-    moodboard: "btn btn-secondary active",
-    charts: "btn btn-secondary",
-    graphs: "btn btn-secondary"
+    moodboard: 'btn btn-secondary active',
+    charts: 'btn btn-secondary',
+    graphs: 'btn btn-secondary'
   };
 
   handleClick = currentlyRendered => {
     const toggleStates = {
       moodBoard: {
-        moodboard: "btn btn-secondary active",
-        charts: "btn btn-secondary",
-        graphs: "btn btn-secondary"
+        moodboard: 'btn btn-secondary active',
+        charts: 'btn btn-secondary',
+        graphs: 'btn btn-secondary'
       },
       charts: {
-        moodboard: "btn btn-secondary",
-        charts: "btn btn-secondary active",
-        graphs: "btn btn-secondary"
+        moodboard: 'btn btn-secondary',
+        charts: 'btn btn-secondary active',
+        graphs: 'btn btn-secondary'
       },
       graphs: {
-        moodboard: "btn btn-secondary",
-        charts: "btn btn-secondary",
-        graphs: "btn btn-secondary active"
+        moodboard: 'btn btn-secondary',
+        charts: 'btn btn-secondary',
+        graphs: 'btn btn-secondary active'
       }
     };
     this.props.toggleCheckbox(currentlyRendered);
     this.setState(toggleStates[currentlyRendered]);
   };
   render() {
-    const { toggleCheckbox } = this.props;
     const { moodboard, charts, graphs } = this.state;
     return (
       <nav className="navbar justify-content-center">
@@ -39,9 +38,9 @@ class Nav extends Component {
               type="radio"
               name="options"
               id="option1"
-              autocomplete="off"
-              onClick={() => this.handleClick("moodBoard")}
-            />{" "}
+              autoComplete="off"
+              onClick={() => this.handleClick('moodBoard')}
+            />{' '}
             MoodBoards
           </label>
           <label className={charts}>
@@ -49,9 +48,9 @@ class Nav extends Component {
               type="radio"
               name="options"
               id="option2"
-              onClick={() => this.handleClick("charts")}
-              autocomplete="off"
-            />{" "}
+              onClick={() => this.handleClick('charts')}
+              autoComplete="off"
+            />{' '}
             Charts
           </label>
           <label className={graphs}>
@@ -59,9 +58,9 @@ class Nav extends Component {
               type="radio"
               name="options"
               id="option3"
-              onClick={() => this.handleClick("graphs")}
-              autocomplete="off"
-            />{" "}
+              onClick={() => this.handleClick('graphs')}
+              autoComplete="off"
+            />{' '}
             Graphs
           </label>
         </div>
