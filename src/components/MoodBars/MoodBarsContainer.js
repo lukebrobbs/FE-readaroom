@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import MoodBars from "./MoodBars";
+import { connect } from 'react-redux';
+import MoodBars from './MoodBars';
 
 const processData = dataPoints => {
   if (dataPoints.length) {
@@ -19,10 +19,10 @@ const processData = dataPoints => {
     const totalAC = emotions.ANGRY + emotions.CALM;
 
     return {
-      happy: Math.round(emotions.HAPPY / totalHS) * 100,
-      sad: Math.round(emotions.SAD / totalHS) * 100,
-      angry: Math.round(emotions.ANGRY / totalAC) * 100,
-      calm: Math.round(emotions.CALM / totalAC) * 100
+      happy: Math.round(emotions.HAPPY / totalHS * 100),
+      sad: Math.round(emotions.SAD / totalHS * 100),
+      angry: Math.round(emotions.ANGRY / totalAC * 100),
+      calm: Math.round(emotions.CALM / totalAC * 100)
     };
   }
   return {
