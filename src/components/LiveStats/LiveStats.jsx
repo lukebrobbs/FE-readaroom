@@ -20,7 +20,7 @@ class LiveStats extends Component {
 
   render() {
     const { currentlyRendered } = this.state;
-    if (this.props.dataPoints.length > 1) this.isStreaming = true;
+    if (this.props.dataPoints > 1) this.isStreaming = true;
     if (!this.isStreaming) {
       return <LoadingGIF />;
     } else {

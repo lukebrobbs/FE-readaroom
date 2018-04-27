@@ -6,7 +6,7 @@ https://codepen.io/andersschmidt/pen/NPVPYP
 */
 
 const LoadingGif = () => (
-  <div id="gif-body" style={{ height: '200px', width: '100%' }}>
+  <div className="container" id="gif-body" style={{ height: '200px' }}>
     <div id="loading">
       <div id="ferry">
         <div id="chimney" />
