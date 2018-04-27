@@ -27,6 +27,9 @@ class MoodGauge extends React.Component {
     const gaugesToShow = this.props.data;
     return (
       <div className="container border bg-light my-4">
+        <h2 className="text-center">
+          <strong>Mood Gauges</strong>
+        </h2>
         <div
           id="guages"
           className="d-flex flex-wrap justify-content-center mx-auto w-75"

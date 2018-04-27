@@ -19,13 +19,10 @@ class MoodBars extends React.Component {
     return (
       <div className="container justify-content-center border bg-light my-4">
         <div>
-          <h2>
+          <h2 className="text-center">
             <strong>Mood Bars</strong>
           </h2>
-          <p>
-            Shows percentage of people in the room registering as Happy vs Sad
-            and Calm vs Angry
-          </p>
+
           <div className="row align-items-center my-3">
             <div className="col-auto px-0 mx-1">
               <span> </span>
