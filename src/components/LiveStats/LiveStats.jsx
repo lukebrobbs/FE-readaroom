@@ -20,21 +20,16 @@ class LiveStats extends Component {
 
   render() {
     const { currentlyRendered } = this.state;
-    if (this.props.dataPoints > 1) this.isStreaming = true;
-    if (!this.isStreaming) {
-      return <LoadingGIF />;
-    } else {
-      return (
-        <React.Fragment>
-          <Nav toggleCheckbox={this.toggleCheckbox} />
-          <StatsContainer />
-          {currentlyRendered === 'moodBoard' && <MoodbarsContainer />}
-          {currentlyRendered === 'moodBoard' && <MoodGaugesContainer />}
-          {currentlyRendered === 'charts' && <TimeChartContainer />}
-          {currentlyRendered === 'graphs' && <LineChartContainer />}
-        </React.Fragment>
-      );
-    }
+    return (
+      <React.Fragment>
+        <Nav toggleCheckbox={this.toggleCheckbox} />
+        <StatsContainer />
+        {currentlyRendered === 'moodBoard' && <MoodbarsContainer />}
+        {currentlyRendered === 'moodBoard' && <MoodGaugesContainer />}
+        {currentlyRendered === 'charts' && <TimeChartContainer />}
+        {currentlyRendered === 'graphs' && <LineChartContainer />}
+      </React.Fragment>
+    );
   }
 }
 
