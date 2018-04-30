@@ -4,7 +4,6 @@ import TimeChartContainer from '../TimeChart/TimeChartContainer';
 import MoodbarsContainer from '../MoodBars/MoodBarsContainer';
 import MoodGaugesContainer from '../MoodGauges/MoodGaugeContainer';
 import LineChartContainer from '../LineChart/LineChartContainer';
-import LoadingGIF from '../LoadingGif/LoadingGif';
 import Nav from '../Nav';
 
 class LiveStats extends Component {
